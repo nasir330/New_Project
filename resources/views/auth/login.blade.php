@@ -1,47 +1,52 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<x-header />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+<body>
+    <div class="col-md-5 card login-form">        
+        @if(session()->has('success'))
+        <div id="successMessage" class="text-center text-success p-1">
+            {{session('success')}}
         </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        @endif
+        @if(session()->has('error'))
+        <div style="color:red;" id="errorMsg" class="text-center p-1">
+            {{session('error')}}
+            <script>
+        setTimeout(function() {
+            window.location.href = '{{ route('login') }}'; // redirect to the login page after 2 seconds
+        }, 1000);
+    </script>
         </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
+        @endif
+        <x-input-error :messages="$errors->get('email')" style="list-style:none;" class="text-danger mt-2" />
+        <x-input-error :messages="$errors->get('username')" style="list-style:none;" class="text-danger mt-2" />
+        <div class="text-center mt-2">
+            <!-- <h5>User Login</h5> -->
+            <h4>User Login</h4>
         </div>
+        <!-- Login section start -->
+        <form action="{{route('login')}}" method="post">
+            @csrf
+            <div class="card-body text-white">
+                <div class="form-group">
+                    <label for="username">User Email</label>
+                    <div class="input-group mb-2">
+                        <input type="email" name="email" class="form-control" placeholder="Enter email address">
+                    </div>
+                </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ml-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+                <div class="form-group">
+                    <label for="email">User password</label>
+                    <div class="input-group mb-2">
+                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <button class="form-control btn theme-btn">Login</button>
+                </div>
+        </form>
+        <div class="row text-right mt-3">
+        <a href="{{route('password.request')}}" > <strong>Forgot password ?</strong> </a>
         </div>
-    </form>
-</x-guest-layout>
+        <!-- Login section end -->
+    </div>
+    <x-footer />

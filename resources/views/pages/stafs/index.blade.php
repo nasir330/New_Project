@@ -25,13 +25,25 @@
                     <!-- box menu end -->
                     <!-- sales overview start -->
                     <div class="row clearfix row-deck">
-
-                        <!-- current overview start -->
-                        <!-- @include('templates.sales_overview.current_overview') -->
-                        <!-- current overview end -->
-                        <!-- statistics start -->
-                        <!-- @include('templates.sales_overview.overview_statistics') -->
-                        <!-- statistics end -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($users as $key=> $user)
+                                <tr>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->created_at}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+<a href="{{route('exportUser')}}">Export</a>
                     </div>
                     <!-- sales overview end -->
 

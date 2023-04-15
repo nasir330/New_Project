@@ -1,25 +1,46 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<x-header />
+
+<body>
+    <div class="col-md-5 card login-form">
+        @if(session()->has('success'))
+        <div id="successMessage" class="text-center text-success p-1">
+            {{session('success')}}
+        </div>
+        @endif
+        @if(session()->has('error'))
+        <div style="color:red;" id="errorMsg" class="text-center p-1">
+            {{session('error')}}
+            <script>
+            setTimeout(function() {
+                window.location.href = '{{ route('
+                login ') }}'; // redirect to the login page after 2 seconds
+            }, 1000);
+            </script>
+        </div>
+        @endif
+        <x-input-error :messages="$errors->get('email')" style="list-style:none;" class="text-danger mt-2" />
+        <x-input-error :messages="$errors->get('username')" style="list-style:none;" class="text-danger mt-2" />
+        <div class="text-center mt-2">
+            <!-- <h5>User Login</h5> -->
+            <h4>Password Reset Request</h4>
+        </div>
+        <!-- Login section start -->
+        <form method="POST" action="{{ route('password.email') }}">
+            @csrf
+            <div class="card-body text-white">
+                <div class="form-group">
+                    <label for="email">User Email</label>
+                    <div class="input-group mb-2">
+                        <input type="email" name="email" class="form-control" placeholder="Enter email address">
+                    </div>
+                </div>
+
+
+                <div class="input-group">
+                    <button class="form-control btn theme-btn">Send Request</button>
+                </div>
+        </form>
+
+        <!-- Login section end -->
     </div>
-
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+    <x-footer />
