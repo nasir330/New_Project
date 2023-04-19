@@ -27,10 +27,10 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->group(function () {
     //Stafs routes
-    Route::get('/users-list', [userController::class, 'index'])->name('users.list');
+    Route::get('/employee-list', [userController::class, 'index'])->name('employee.list');
     Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
-    Route::get('/add-staf', [StafsController::class, 'create'])->name('add.staf');
-    Route::post('/add-staf', [StafsController::class, 'store'])->name('add.staf');
+    Route::get('/add-employee', [StafsController::class, 'create'])->name('add.employee');
+    Route::post('/add-employee', [StafsController::class, 'store'])->name('add.employee');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

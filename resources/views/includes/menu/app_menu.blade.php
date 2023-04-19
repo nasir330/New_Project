@@ -23,19 +23,18 @@
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
                     <i class="fa-solid fa-user-tie"></i>
-                    <span>Users</span>
+                    <span>Employee</span>
                 </a>
                 <ul>
                     <li>
-                        <a href="{{route('users.list')}}">
+                        <a href="{{route('employee.list')}}">
                             <i class="fa-solid fa-user-group"></i>
-                            Users List
+                            Employee List
                         </a>
                     </li>
                     <li>
-                    <a href="{{route('add.staf')}}">
+                    <a href="{{route('add.employee')}}">
                             <i class="fa-solid fa-user-check"></i>
-
                             Add New
                         </a>
                     </li>

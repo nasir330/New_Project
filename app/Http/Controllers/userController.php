@@ -13,7 +13,7 @@ class userController extends Controller
     {
         
         $users = User::all();       
-        return view('pages.stafs.index',['users' => $users]);
+        return view('pages.employees.index',['users' => $users]);
     }
     public function exportUser()
     {
