@@ -35,200 +35,127 @@
                                     </div>
                                     @endif
                                 </div>
-                                <div class="card-body">
+                                <div class="card-body p-2">
                                     <form action="{{route('add.employee')}}" method="post"
                                         enctype="multipart/form-data">
                                         @csrf
 
-                                        <div class="row">
+                                        <div id="boxitem" class="row">
                                             <div class="col-md-6">
-                                                <div class="card-header">
-                                                    personal details
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-4">
-                                                            <label for="first_name" class="mb-0">First Name</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="text" name="first_name"
-                                                                    class="form-control" placeholder="Enter first name"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label for="last_name" class="mb-0">Last Name</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="text" name="last_name" class="form-control"
-                                                                    placeholder="Enter last name" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label for="job_role" class="mb-0">Job Role</label>
-                                                            <div class="input-group mb-2">
-                                                                <select name="job_role"
-                                                                    class="form-select form-control">
-                                                                    <option value="">--Select Role--</option>
-                                                                    <option value="Inspector">Inspector</option>
-                                                                    <option value="Sub-Inspector">Sub-Inspector</option>
-                                                                    <option value="Constable">Constable</option>
-                                                                    <option value="Assistant Constable">Assistant
-                                                                        Constable
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
+                                                <div class="card">
+                                                    <div class="card-header">
+                                                        personal details
                                                     </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-4">
-                                                            <label for="email" class="mb-0">Email address</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="email" name="email" class="form-control"
-                                                                    placeholder="Enter email address" required>
+                                                    <div class="card-body">
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-6">
+                                                                <label for="first_name" class="mb-0">First Name</label>
+                                                                <div class="input-group mb-2">
+                                                                    <input type="text" name="first_name"
+                                                                        class="form-control"
+                                                                        placeholder="Enter first name" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="last_name" class="mb-0">Last Name</label>
+                                                                <div class="input-group mb-2">
+                                                                    <input type="text" name="last_name"
+                                                                        class="form-control"
+                                                                        placeholder="Enter last name" required>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-6">
+                                                                <label for="job_role" class="mb-0">Job Role</label>
+                                                                <div class="input-group mb-2">
+                                                                    <select name="job_role"
+                                                                        class="form-select form-control">
+                                                                        <option value="">--Select Role--</option>
+                                                                        <option value="Inspector">Inspector</option>
+                                                                        <option value="Sub-Inspector">Sub-Inspector
+                                                                        </option>
+                                                                        <option value="Constable">Constable</option>
+                                                                        <option value="Assistant Constable">Assistant
+                                                                            Constable
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="job_role" class="mb-0">Job Role</label>
+                                                                <div class="input-group mb-2">
+                                                                    <select name="job_role"
+                                                                        class="form-select form-control">
+                                                                        <option value="">--Select Role--</option>
+                                                                        <option value="Inspector">Inspector</option>
+                                                                        <option value="Sub-Inspector">Sub-Inspector
+                                                                        </option>
+                                                                        <option value="Constable">Constable</option>
+                                                                        <option value="Assistant Constable">Assistant
+                                                                            Constable
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <label for="email" class="mb-0">Email address</label>
+                                                                <div class="input-group mb-2">
+                                                                    <input type="email" name="email"
+                                                                        class="form-control"
+                                                                        placeholder="Enter email address" required>
+                                                                </div>
+                                                            </div>
 
-                                                        <div class="col-md-4">
-                                                            <label for="user_type" class="mb-0">User Type</label>
-                                                            <div class="input-group mb-2">
-                                                                <select name="user_type"
-                                                                    class="form-select form-control">
-                                                                    <option value="">--Select type--</option>
-                                                                    @foreach($userTypes as $key=> $userType)
-                                                                    <option value="{{$userType->id}}">
-                                                                        {{$userType->type}}
-                                                                    </option>
-                                                                    @endforeach
-                                                                </select>
+                                                            <div class="col-md-4">
+                                                                <label for="user_type" class="mb-0">User Type</label>
+                                                                <div class="input-group mb-2">
+                                                                    <select name="user_type"
+                                                                        class="form-select form-control">
+                                                                        <option value="">--Select type--</option>
+                                                                        @foreach($userTypes as $key=> $userType)
+                                                                        <option value="{{$userType->id}}">
+                                                                            {{$userType->type}}
+                                                                        </option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <label for="gender" class="mb-0">Gender</label>
+                                                                <div class="input-group mb-2">
+                                                                    <select name="gender"
+                                                                        class="form-select form-control" required>
+                                                                        <option value="">--Select Gender--</option>
+                                                                        <option value="Male">Male</option>
+                                                                        <option value="Female">Female</option>
+                                                                    </select>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-4">
-                                                            <label for="gender" class="mb-0">Gender</label>
-                                                            <div class="input-group mb-2">
-                                                                <select name="gender" class="form-select form-control"
-                                                                    required>
-                                                                    <option value="">--Select Gender--</option>
-                                                                    <option value="Male">Male</option>
-                                                                    <option value="Female">Female</option>
-                                                                </select>
+                                                        <div class="row mb-2">
+                                                            <div class="col-md-4">
+                                                                <label for="join_date" class="mb-0">Joining Date</label>
+                                                                <div class="input-group mb-2">
+                                                                    <input type="date" name="join_date"
+                                                                        class="form-control" required>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-4">
-                                                            <label for="join_date" class="mb-0">Joining Date</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="date" name="join_date" class="form-control"
-                                                                    required>
+                                                            <div class="col-md-4">
+                                                                <label for="photo" class="mb-0">Uplod Image</label>
+                                                                <div class="input-group mb-2">
+                                                                    <input type="file" name="photo" class="form-control"
+                                                                        required>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label for="photo" class="mb-0">Uplod Image</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="file" name="photo" class="form-control"
-                                                                    required>
-                                                            </div>
-                                                        </div>
 
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="card-header">
-                                                    personal details
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-4">
-                                                            <label for="first_name" class="mb-0">First Name</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="text" name="first_name"
-                                                                    class="form-control" placeholder="Enter first name"
-                                                                    required>
-                                                            </div>
-                                                        </div>
 
-                                                        <div class="col-md-4">
-                                                            <label for="last_name" class="mb-0">Last Name</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="text" name="last_name" class="form-control"
-                                                                    placeholder="Enter last name" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label for="job_role" class="mb-0">Job Role</label>
-                                                            <div class="input-group mb-2">
-                                                                <select name="job_role"
-                                                                    class="form-select form-control">
-                                                                    <option value="">--Select Role--</option>
-                                                                    <option value="Inspector">Inspector</option>
-                                                                    <option value="Sub-Inspector">Sub-Inspector</option>
-                                                                    <option value="Constable">Constable</option>
-                                                                    <option value="Assistant Constable">Assistant
-                                                                        Constable
-                                                                    </option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-4">
-                                                            <label for="email" class="mb-0">Email address</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="email" name="email" class="form-control"
-                                                                    placeholder="Enter email address" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-md-4">
-                                                            <label for="user_type" class="mb-0">User Type</label>
-                                                            <div class="input-group mb-2">
-                                                                <select name="user_type"
-                                                                    class="form-select form-control">
-                                                                    <option value="">--Select type--</option>
-                                                                    @foreach($userTypes as $key=> $userType)
-                                                                    <option value="{{$userType->id}}">
-                                                                        {{$userType->type}}
-                                                                    </option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label for="gender" class="mb-0">Gender</label>
-                                                            <div class="input-group mb-2">
-                                                                <select name="gender" class="form-select form-control"
-                                                                    required>
-                                                                    <option value="">--Select Gender--</option>
-                                                                    <option value="Male">Male</option>
-                                                                    <option value="Female">Female</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row mb-2">
-                                                        <div class="col-md-4">
-                                                            <label for="join_date" class="mb-0">Joining Date</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="date" name="join_date" class="form-control"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4">
-                                                            <label for="photo" class="mb-0">Uplod Image</label>
-                                                            <div class="input-group mb-2">
-                                                                <input type="file" name="photo" class="form-control"
-                                                                    required>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                         <div class="row mb-2">
                                             <div class="input-group">
