@@ -29,8 +29,8 @@ Route::middleware('auth')->group(function () {
     //Stafs routes
     Route::get('/employee-list', [userController::class, 'index'])->name('employee.list');
     Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
-    Route::get('/add-employee', [StafsController::class, 'create'])->name('add.employee');
-    Route::post('/add-employee', [StafsController::class, 'store'])->name('add.employee');
+    Route::get('/add-employee', [userController::class, 'create'])->name('add.employee');
+    Route::post('/add-employee', [userController::class, 'store'])->name('add.employee');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

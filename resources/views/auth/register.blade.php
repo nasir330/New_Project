@@ -22,12 +22,7 @@
         <form action="{{route('register')}}" method="post">
             @csrf
             <div class="card-body text-white">
-                <div class="form-group">
-                    <label for="name" class="mb-0">Name</label>
-                    <div class="input-group mb-2">
-                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
-                    </div>
-                </div>
+              
                 <div class="form-group">
                     <label for="email" class="mb-0">Email address</label>
                     <div class="input-group mb-2">

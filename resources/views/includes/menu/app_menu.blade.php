@@ -1,7 +1,7 @@
 <div id="left-sidebar" class="sidebar">
     <div class="row">
         <div class="col-auto text-white">
-           <h4>{{Auth::user()->name}}</h4>
+            <h4>{{Auth::user()->employees->firstName. ' '.Auth::user()->employees->lastName }}</h4>
         </div>
         <!-- <div class="col-auto d-flex justify-content-end">
             <a href="javascript:void(0)" class="menu_option float-right">
@@ -27,15 +27,15 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="{{route('employee.list')}}">
-                            <i class="fa-solid fa-user-group"></i>
-                            Employee List
+                        <a href="{{route('add.employee')}}">
+                            <i class="fa-solid fa-user-check"></i>
+                            Add New
                         </a>
                     </li>
                     <li>
-                    <a href="{{route('add.employee')}}">
-                            <i class="fa-solid fa-user-check"></i>
-                            Add New
+                        <a href="{{route('employee.list')}}">
+                            <i class="fa-solid fa-user-group"></i>
+                            Employee List
                         </a>
                     </li>
                 </ul>
@@ -90,19 +90,19 @@
             <!-- Maintenance menu list start -->
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
-                <i class="fa-solid fa-truck-field-un"></i>
+                    <i class="fa-solid fa-truck-field-un"></i>
                     <span>Inventory's</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
-                        <i class="fa-solid fa-list"></i>
+                            <i class="fa-solid fa-list"></i>
                             Inventory List
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                        <i class="fa-solid fa-plus"></i>
+                            <i class="fa-solid fa-plus"></i>
                             Add New
                         </a>
                     </li>
@@ -110,7 +110,7 @@
             </li>
             <li>
                 <a href="login.html">
-                <i class="fa-solid fa-folder-open"></i>
+                    <i class="fa-solid fa-folder-open"></i>
                     Report
                 </a>
             </li>

@@ -42,6 +42,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function employees() {
+        return $this->hasOne(Employees::class, 'userId', 'id');
+    }
+
     protected static function boot()
     {
         parent::boot();

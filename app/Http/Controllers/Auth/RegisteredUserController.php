@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Employees;
+use App\Models\Financial;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -30,18 +32,24 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+        $request->validate([            
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $user = User::create([            
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-
+        
+        Employees::create([            
+            'userId' => $user->id,
+            'firstName' => 'Super',
+            'lastName' => 'Admin',
+        ]);
+        Financial::create([            
+            'userId' => $user->id,           
+        ]);
         event(new Registered($user));
 
         Auth::login($user);

@@ -31,12 +31,13 @@
                                     <h3 class="card-title">Create Staff Account</h3>
                                     @if(session()->has('success'))
                                     <div id="successMessage" class="text-center text-success p-2 ml-3">
-                                       <span style="color:green;">{{session('success')}}</span> 
+                                        <span style="color:green;">{{session('success')}}</span>
                                     </div>
                                     @endif
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{route('add.staf')}}" method="post" enctype="multipart/form-data">
+                                    <form action="{{route('add.employee')}}" method="post"
+                                        enctype="multipart/form-data">
                                         @csrf
                                         <div class="row mb-2">
                                             <div class="col-md-4">
