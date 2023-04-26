@@ -43,19 +43,79 @@
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
                     <i class="fa-solid fa-handcuffs"></i>
-                    <span>Inmate's</span>
+                    <span>Attendance</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
                             <i class="fa-solid fa-users"></i>
-                            Inmate's List
+                            Daily Attendance
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
                             <i class="fa-solid fa-user-plus"></i>
-                            Add New
+                            Attendance Report
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="has-arrow arrow-c">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    <span>Leaves</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-users"></i>
+                            Add Leaves
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Manage Leaves
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="has-arrow arrow-c">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    <span>Payrolls</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-users"></i>
+                            Payscale
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Monthly
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="has-arrow arrow-c">
+                    <i class="fa-solid fa-handcuffs"></i>
+                    <span>Holidays</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-users"></i>
+                            Add Holiday
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Manage Holiday
                         </a>
                     </li>
                 </ul>
@@ -67,55 +127,67 @@
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
                     <i class="fa-solid fa-people-group"></i>
-                    <span>Visitor's</span>
+                    <span>Settings</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
                             <i class="fa-solid fa-people-group"></i>
-                            Visitor List
+                            Company Details
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
                             <i class="fa-solid fa-user-plus"></i>
-                            Add New
+                            Departments
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Designation
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Allowance & Deduction
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Payscale
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Leave Type
+                        </a>
+                    </li>
+                    <li>
+                        <a href="login.html">
+                            <i class="fa-solid fa-user-plus"></i>
+                            Shift
                         </a>
                     </li>
                 </ul>
             </li>
             <!-- Services menu list end -->
 
-            <li class="g_heading">Maintenance</li>
-            <!-- Maintenance menu list start -->
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
                     <i class="fa-solid fa-truck-field-un"></i>
-                    <span>Inventory's</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-list"></i>
-                            Inventory List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-plus"></i>
-                            Add New
-                        </a>
-                    </li>
-                </ul>
+                    <span>Managers</span>
+                </a>               
             </li>
             <li>
                 <a href="login.html">
                     <i class="fa-solid fa-folder-open"></i>
-                    Report
+                    Activity Log
                 </a>
             </li>
-            <!-- Maintenance menu list end -->
-
 
         </ul>
     </nav>
