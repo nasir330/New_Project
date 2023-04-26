@@ -19,23 +19,23 @@ return new class extends Migration
             $table->string('firstName')->nullable();
             $table->string('lastName')->nullable();
             $table->string('fathersName')->nullable();
+            $table->string('gender')->nullable();
             $table->string('presentAddress')->nullable();
             $table->string('permanentAddress')->nullable();
             $table->string('dob')->nullable();
             $table->string('phone')->nullable();
             $table->string('referenceName')->nullable();
             $table->string('referencePhone')->nullable();
-            $table->string('nationality')->nullable();
-            $table->string('docType')->nullable();
-            $table->string('docIdNo')->nullable();
+            $table->string('govId')->nullable();           
+            $table->string('govIdNo')->nullable();
             $table->string('photo')->nullable();
             $table->string('department')->nullable();
             $table->string('designation')->nullable();
             $table->string('joinDate')->nullable();
             $table->string('leaveDate')->nullable();
-            $table->string('manager')->nullable();
             $table->string('status')->nullable();
             $table->string('shift')->nullable();
+            $table->string('hiringManager')->nullable();          
             $table->timestamps();
         });
     }

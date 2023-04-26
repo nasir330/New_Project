@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('userId');
             $table->string('salaryType')->nullable();
             $table->string('payScale')->nullable();
-            $table->string('acHolder')->nullable();
-            $table->string('acNumber')->nullable();
+            $table->string('accHolderName')->nullable();
+            $table->string('accNumber')->nullable();
             $table->string('bankName')->nullable();
             $table->string('branch')->nullable();
-            $table->string('bankCode')->nullable();
+            $table->string('branchCode')->nullable();
             $table->timestamps();
         });
     }

@@ -21,6 +21,14 @@ class userController extends Controller
          $userTypes = UserType::whereNot('id',1)->paginate(10);    
          return view('pages.employees.create',['userTypes'=> $userTypes]);
      }
+     //store employee data
+     public function store(Request $request)
+     {    
+        $data = $request->all();
+        return $data; 
+        $userTypes = UserType::whereNot('id',1)->paginate(10);    
+         return view('pages.employees.create',['userTypes'=> $userTypes]);
+     }
     public function exportUser()
     {
       return Excel::download(new UsersExport, 'users.xls');
