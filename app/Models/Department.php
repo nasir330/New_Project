@@ -12,4 +12,8 @@ class Department extends Model
     protected $fillable = [
         'department',
     ];
+
+    public function designations() {
+        return $this->hasOne(Designation::class, 'departmentId', 'id');
+    }
 }

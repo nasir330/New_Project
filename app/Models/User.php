@@ -42,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //table relation with employee
     public function employees() {
         return $this->hasOne(Employees::class, 'userId', 'id');
     }

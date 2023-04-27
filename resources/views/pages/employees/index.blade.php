@@ -50,10 +50,23 @@
                                                 @foreach($users as $key=> $employee)
                                                 <tr>
                                                     <td>{{$employee->id}}</td>
-                                                    <td>{{$employee->employees->firstName. ' '.$employee->employees->firstName}}</td>
+                                                    <td>{{$employee->employees->firstName. ' '.$employee->employees->lastName}}
+                                                    </td>
                                                     <td>{{$employee->email}}</td>
-                                                    <td>{{$employee->employees->department}}</td>
-                                                    <td>{{$employee->employees->designation}}</td>
+                                                    <td>
+                                                        @if(!empty($employee->employees->departments))
+                                                        {{$employee->employees->departments->department}}
+                                                        @else
+                                                        {{'NA'}}
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        @if(!empty($employee->employees->departments->designations))
+                                                        {{$employee->employees->departments->designations->designation}}
+                                                        @else
+                                                        {{'NA'}}
+                                                        @endif
+                                                    </td>
                                                     <td>{{$employee->employees->shift}}</td>
                                                     <td>{{$employee->employees->status}}</td>
                                                     <td>

@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-Dear {{ $user->name }},
+Dear {{ $user->employees->firstName. ' '.$user->employees->lastName }},
 
 <p>
 Your account has been created successfully. Please use the following login details to access your account:
@@ -18,6 +18,9 @@ Email: {{ $user->email }} <br>
 Password: {{ $password }}
 </p>
 
+<p>
+    <button>Login</button>
+</p>
 <p>
 <strong>We recommend that you change your password after your first login.</strong>
 </p>

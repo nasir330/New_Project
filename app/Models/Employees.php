@@ -9,4 +9,9 @@ class Employees extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+      //table relation with Department
+      public function departments() {
+        return $this->belongsTo(Department::class, 'department', 'id');
+    }
 }
