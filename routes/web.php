@@ -17,6 +17,7 @@ use App\Http\Controllers\userController;
 */
 
 Route::get('/',[AppController::class, 'index']);
+
 Route::get('/password-reset-notification', function () {
     return view('notification.password-request');
 })->name('password.reset.notification');

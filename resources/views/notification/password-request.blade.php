@@ -1,39 +1,22 @@
-<!-- include theame header -->
 <x-header />
 
-  <body>
-    <main class="section-password-request">
-      <section class="section-password-request--logo">
-        <a href="index.html">
-          <img src="../assets/images/logo.png" alt="logo" class="img-fluid" />
-        </a>
-      </section>
-
-      <section class="section-password-request--details">
-        <div class="container">
-          <div class="row align-items-center bg-white p-5">
-            <div class="col-md-6 p-5">
-              <div class="card border-0">
-                <div class="card-title justify-content-start">
-                  <h1 class="heading">Forgotten Password</h1>
-                </div>
-                <div class="card-body ps-0">
-                  <p>A new password has been emailed to you.</p>
-                  <p>
-                    If you do not receive and email please
-                    <a href="../forgot-password.html"> try again </a> or contact
+<body>
+   <div class="row d-flex justify-content-center">
+   <div class="col-md-9 notification-board">
+        <div class="card p-2">
+            <div class="text-center">
+                <!-- <h5>User Login</h5> -->
+                <h4>Forgotten Password</h4>
+            </div>
+            <div class="card-body text-white text-center">
+                <p class="mt-3">A new password has been emailed to you.</p>
+                <p class="mb-4">
+                    If you do not receive an email please
+                    <a href="{{route('password.request')}}"> try again </a> or contact
                     support.
-                  </p>
-                </div>
-              </div>
+                </p>
             </div>
-            <div class="col-md-6">
-              <img src="../assets/images/emailed.svg" alt="" />
-            </div>
-          </div>
         </div>
-      </section>
-    </main>
-
-<!-- include theme footer -->
-<x-footer />
+    </div>
+   </div>
+    <x-footer />

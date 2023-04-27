@@ -30,6 +30,18 @@ a{
     background-color: #00A9BD;
     border-color: #00A9BD
  }
+ .notification-board .card {   
+   height: auto;
+   margin: 15% auto;
+   background-color: #283041 !important
+}
+.notification-board h4 {
+   color:#00A9BD;
+   border-bottom: 1px solid #222;
+   width:50%; 
+   margin: auto 25%;
+   padding:20px;
+}
  #boxitem .card-header{
    background-color: #283041;
    color:#fff;
@@ -62,5 +74,13 @@ a{
         height: auto;
         margin-top: 20%;
      } 
+     .notification-board .card {   
+      height: auto;
+      margin: 15% auto;
+      background-color: #283041 !important
+   }
+     .notification-board p { 
+      margin: auto 10%;
+   }
   
 }
