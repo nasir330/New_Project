@@ -13,13 +13,13 @@ Dear {{ $user->employees->firstName. ' '.$user->employees->lastName }},
 Your account has been created successfully. Please use the following login details to access your account:
 </p>
 
-<p>
+<p style="padding:10px; border:0.5px solid gray; background-color:lightgray; font-size:14px; width:30%;">
 Email: {{ $user->email }} <br>
 Password: {{ $password }}
 </p>
 
 <p>
-    <button>Login</button>
+    <button style="width:25%; padding:10px; background-color:#222; border-radius:5px 5px 5px 5px;"><a style="text-transform:uppercase; color:#fff; font-size:15px;" href="{{route('login')}}">Login</a></button>
 </p>
 <p>
 <strong>We recommend that you change your password after your first login.</strong>
@@ -27,7 +27,7 @@ Password: {{ $password }}
 <p>
 Best regards, <br>
 <em>Author</em> <br>
-<strong>Prison Management</strong>
+<strong>HRM SYSTEM</strong>
 </p>
 </body>
 </html>

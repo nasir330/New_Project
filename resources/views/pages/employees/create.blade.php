@@ -201,7 +201,7 @@
                                                                         class="form-select form-control" required>
                                                                         <option value="">--Select Gender--</option>
                                                                         @foreach($userTypes as $key=> $userType)
-                                                                        <option value="Male">{{$userType->type}}
+                                                                        <option value="{{$userType->id}}">{{$userType->type}}
                                                                         </option>
                                                                         @endforeach
                                                                     </select>
@@ -300,8 +300,8 @@
                                                                     <select name="hiringManager"
                                                                         class="form-select form-control" required>
                                                                         <option value="">--Select Manager--</option>
-                                                                        <option value="Male">HR Manager</option>
-                                                                        <option value="Female">Executive Manager</option>
+                                                                        <option value="HR Manager">HR Manager</option>
+                                                                        <option value="Executive Manager">Executive Manager</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -323,9 +323,9 @@
                                                                     <select name="salaryType"
                                                                         class="form-select form-control" required>
                                                                         <option value="">--Salary Type--</option>
-                                                                        <option value="Male">Monthly</option>
-                                                                        <option value="Female">Weekly</option>
-                                                                        <option value="Female">Daily</option>
+                                                                        <option value="Monthly">Monthly</option>
+                                                                        <option value="Weekly">Weekly</option>
+                                                                        <option value="Daily">Daily</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -335,9 +335,9 @@
                                                                     <select name="payScale"
                                                                         class="form-select form-control" required>
                                                                         <option value="">--Pay Scale--</option>
-                                                                        <option value="Male">10000</option>
-                                                                        <option value="Female">2400</option>
-                                                                        <option value="Female">50</option>
+                                                                        <option value="10000">10000</option>
+                                                                        <option value="2400">2400</option>
+                                                                        <option value="50">50</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
