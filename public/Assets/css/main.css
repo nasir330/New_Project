@@ -10721,7 +10721,9 @@ img {
     margin-left: auto;
     display: flex;
     order: 100;
-    align-self: center
+    align-self: center;
+    position: absolute;
+    z-index: 9999;
 }
 
 .card-options>a {

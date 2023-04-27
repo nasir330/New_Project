@@ -50,15 +50,14 @@
                                                 @foreach($users as $key=> $employee)
                                                 <tr>
                                                     <td>{{$employee->id}}</td>
-                                                    <td>{{$employee->name}}</td>
+                                                    <td>{{$employee->employees->firstName. ' '.$employee->employees->firstName}}</td>
                                                     <td>{{$employee->email}}</td>
-                                                    <td>{{'HR'}}</td>
-                                                    <td>{{'HR Manager'}}</td>
-                                                    <td>{{'Day'}}</td>
-                                                    <td>{{'Active'}}</td>
+                                                    <td>{{$employee->employees->department}}</td>
+                                                    <td>{{$employee->employees->designation}}</td>
+                                                    <td>{{$employee->employees->shift}}</td>
+                                                    <td>{{$employee->employees->status}}</td>
                                                     <td>
                                                         <div class="card-options">
-
                                                             <div class="dropend">
                                                                 <a class="dropdown-toggle" data-bs-toggle="dropdown"
                                                                     aria-expanded="false">
