@@ -20,15 +20,12 @@
 
             <div class="section-body mt-3">
                 <div class="container-fluid">
-                    <!-- box menu start -->
-                    @include('includes.menu.box_menu')
-                    <!-- box menu end -->
                     <!-- sales overview start -->
                     <div class="row clearfix row-deck">
                         <div class="col-12 col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Project Summary</h3>
+                                    <h3 class="card-title">Employees List</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
@@ -78,7 +75,7 @@
                                                                 </a>
                                                                 <ul class="dropdown-menu">
                                                                     <li class="dropdown-item">
-                                                                        <a href="javascript:void(0)">
+                                                                        <a href="{{route('view.employee',['id'=>$employee->id])}}">
                                                                             <i class="dropdown-icon fa fa-eye"></i>
                                                                             View Details
                                                                         </a>

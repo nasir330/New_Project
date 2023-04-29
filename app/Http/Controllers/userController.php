@@ -94,9 +94,14 @@ class userController extends Controller
         
         // Flash a success message and redirect back
         session()->flash('success', 'Employee created successfully..!!');
-        return redirect()->back();
-            
+        return redirect()->back();           
        
+     }
+     //view employees profile
+     public function view($id)
+     {
+        $employee = User::find($id);
+        return view('pages.employees.view',['employee' => $employee]);
      }
     public function exportUser()
     {

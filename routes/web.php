@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
     Route::get('/add-employee', [userController::class, 'create'])->name('add.employee');
     Route::post('/add-employee', [userController::class, 'store'])->name('add.employee');
+    Route::get('/employee-view/{id}',[UserController::class,'view'])->name('view.employee');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

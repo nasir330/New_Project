@@ -20,15 +20,13 @@
 
             <div class="section-body mt-3">
                 <div class="container-fluid">
-                    <!-- box menu start -->
-                    @include('includes.menu.box_menu')
-                    <!-- box menu end -->
+                   
                     <!-- sales overview start -->
                     <div class="row clearfix row-deck">
                         <div class="col mb-2">
                             <div class="card">
                                 <div class="card-header text-center">
-                                    <h3 class="card-title">Create Staff Account</h3>
+                                    <h3 class="card-title">Create Employees Account</h3>
                                     @if(session()->has('success'))
                                     <div id="successMessage" class="text-center text-success p-2 ml-3">
                                         <span style="color:green;">{{session('success')}}</span>
@@ -199,9 +197,10 @@
                                                                 <div class="input-group mb-2">
                                                                     <select name="userType"
                                                                         class="form-select form-control" required>
-                                                                        <option value="">--Select Gender--</option>
+                                                                        <option value="">--Select User Type--</option>
                                                                         @foreach($userTypes as $key=> $userType)
-                                                                        <option value="{{$userType->id}}">{{$userType->type}}
+                                                                        <option value="{{$userType->id}}">
+                                                                            {{$userType->type}}
                                                                         </option>
                                                                         @endforeach
                                                                     </select>
@@ -301,7 +300,8 @@
                                                                         class="form-select form-control" required>
                                                                         <option value="">--Select Manager--</option>
                                                                         <option value="HR Manager">HR Manager</option>
-                                                                        <option value="Executive Manager">Executive Manager</option>
+                                                                        <option value="Executive Manager">Executive
+                                                                            Manager</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
