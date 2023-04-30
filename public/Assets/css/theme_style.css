@@ -46,9 +46,9 @@ a{
    background-color: #283041;
    color:#fff;
  }
- #staffAvatar img {
-   width: 50%;  
-   border: 5px solid #283041;
+ #employeePhoto img {
+   width: 30%;  
+   border: 2px solid #283041;
    border-radius: 50%;
 }
 .photo-edit-btn {
@@ -61,7 +61,7 @@ a{
    bottom: 15%;
    left: 55%;
 }
-#staffAvatar .icon{
+#employeePhoto .icon{
    color: #00A9BD;
    font-size:18px;
 }

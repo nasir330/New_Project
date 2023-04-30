@@ -45,8 +45,8 @@ a,
 }
 
 .nav-tabs .nav-link.active {
-    border-color: #E74C3C;
-    color: #E74C3C
+    border-color: #1A5089;
+    color: #1A5089
 }
 
 .form-control:focus {
@@ -527,11 +527,11 @@ body {
 }
 
 .sidebar_dark .sidebar .metismenu .active>a {
-    color: #E74C3C
+    color: #1A5089
 }
 
 .sidebar_dark .sidebar .metismenu .active ul .active a {
-    color: #E74C3C
+    color: #1A5089
 }
 
 .iconcolor #header_top .nav-link {
