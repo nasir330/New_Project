@@ -40,90 +40,199 @@
                                     </h4>
                                     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist"
                                         aria-orientation="vertical">
-                                        <a class="nav-link active" id="vert-tabs-home-tab" data-toggle="pill"
-                                            href="#vert-tabs-home" role="tab" aria-controls="vert-tabs-home"
+                                        <a class="nav-link active" id="personalInfo" data-toggle="pill"
+                                            href="#tab-personalInfo" role="tab" aria-controls="tab-personalInfo"
                                             aria-selected="true">Personal Information</a>
-                                        <a class="nav-link" id="vert-tabs-profile-tab" data-toggle="pill"
-                                            href="#vert-tabs-profile" role="tab" aria-controls="vert-tabs-profile"
-                                            aria-selected="false">Company Information</a>
-                                        <a class="nav-link" id="vert-tabs-messages-tab" data-toggle="pill"
-                                            href="#vert-tabs-messages" role="tab" aria-controls="vert-tabs-messages"
+                                        <a class="nav-link" id="companyInfo" data-toggle="pill" href="#tab-companyInfo"
+                                            role="tab" aria-controls="tab-companyInfo" aria-selected="false">Company
+                                            Information</a>
+                                        <a class="nav-link" id="financialInfo" data-toggle="pill"
+                                            href="#tab-financialInfo" role="tab" aria-controls="tab-financialInfo"
                                             aria-selected="false">Financial</a>
-
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8">
-                            <div class="card">
+                        <div class="col-md-8 tab-content" id="vert-tabs-tabContent">
+                            <!-- Personal Information card start -->
+                            <div class="card tab-pane text-left fade show active" id="tab-personalInfo" role="tabpanel"
+                                aria-labelledby="personalInfo">
                                 <div class="card-header">
                                     {{'Personal Details'}}
                                 </div>
                                 <div class="card-body">
-                                    <div class="tab-content" id="vert-tabs-tabContent">
-                                        <div class="tab-pane text-left fade show active" id="vert-tabs-home"
-                                            role="tabpanel" aria-labelledby="vert-tabs-home-tab">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin malesuada
-                                            lacus ullamcorper dui molestie, sit amet congue quam finibus. Etiam
-                                            ultricies nunc non magna feugiat commodo. Etiam odio magna, mollis auctor
-                                            felis vitae, ullamcorper ornare ligula. Proin pellentesque tincidunt nisi,
-                                            vitae ullamcorper felis aliquam id. Pellentesque habitant morbi tristique
-                                            senectus et netus et malesuada fames ac turpis egestas. Proin id orci eu
-                                            lectus blandit suscipit. Phasellus porta, ante et varius ornare, sem enim
-                                            sollicitudin eros, at commodo leo est vitae lacus. Etiam ut porta sem. Proin
-                                            porttitor porta nisl, id tempor risus rhoncus quis. In in quam a nibh cursus
-                                            pulvinar non consequat neque. Mauris lacus elit, condimentum ac condimentum
-                                            at, semper vitae lectus. Cras lacinia erat eget sapien porta consectetur.
-                                        </div>
-                                        <div class="tab-pane fade" id="vert-tabs-profile" role="tabpanel"
-                                            aria-labelledby="vert-tabs-profile-tab">
-                                            Mauris tincidunt mi at erat gravida, eget tristique urna bibendum. Mauris
-                                            pharetra purus ut ligula tempor, et vulputate metus facilisis. Lorem ipsum
-                                            dolor sit amet, consectetur adipiscing elit. Vestibulum ante ipsum primis in
-                                            faucibus orci luctus et ultrices posuere cubilia Curae; Maecenas
-                                            sollicitudin, nisi a luctus interdum, nisl ligula placerat mi, quis posuere
-                                            purus ligula eu lectus. Donec nunc tellus, elementum sit amet ultricies at,
-                                            posuere nec nunc. Nunc euismod pellentesque diam.
-                                        </div>
-                                        <div class="tab-pane fade" id="vert-tabs-messages" role="tabpanel"
-                                            aria-labelledby="vert-tabs-messages-tab">
-                                            Morbi turpis dolor, vulputate vitae felis non, tincidunt congue mauris.
-                                            Phasellus volutpat augue id mi placerat mollis. Vivamus faucibus eu massa
-                                            eget condimentum. Fusce nec hendrerit sem, ac tristique nulla. Integer
-                                            vestibulum orci odio. Cras nec augue ipsum. Suspendisse ut velit
-                                            condimentum, mattis urna a, malesuada nunc. Curabitur eleifend facilisis
-                                            velit finibus tristique. Nam vulputate, eros non luctus efficitur, ipsum
-                                            odio volutpat massa, sit amet sollicitudin est libero sed ipsum. Nulla
-                                            lacinia, ex vitae gravida fermentum, lectus ipsum gravida arcu, id fermentum
-                                            metus arcu vel metus. Curabitur eget sem eu risus tincidunt eleifend ac
-                                            ornare magna.
-                                        </div>
-                                        <div class="tab-pane fade" id="vert-tabs-settings" role="tabpanel"
-                                            aria-labelledby="vert-tabs-settings-tab">
-                                            Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna,
-                                            iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor.
-                                            Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique.
-                                            Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat
-                                            urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at
-                                            consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse
-                                            platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
-                                        </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-nowrap mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:30%;">First Name</td>
+                                                    <td>{{$employee->employees->firstName}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Last Name</td>
+                                                    <td>{{$employee->employees->lastName}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Fathers Name</td>
+                                                    <td>{{$employee->employees->fathersName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Gender</td>
+                                                    <td>{{$employee->employees->gender}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Birth Date</td>
+                                                    <td>{{$employee->employees->dob}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Contact No</td>
+                                                    <td>{{$employee->employees->phone}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Present Address</td>
+                                                    <td style="white-space: pre-line">
+                                                        {{$employee->employees->presentAddress}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Permanent Address</td>
+                                                    <td style="white-space: pre-line">
+                                                        {{$employee->employees->permanentAddress}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Reference by</td>
+                                                    <td>{{$employee->employees->referenceName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Reference Contact</td>
+                                                    <td>{{$employee->employees->referencePhone}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Identity Type</td>
+                                                    <td>{{$employee->employees->govId}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Identity No</td>
+                                                    <td>{{$employee->employees->govIdNo}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Personal Information card end -->
+
+                            <!-- Company Information card start -->
+                            <div class="card tab-pane text-left fade" id="tab-companyInfo" role="tabpanel"
+                                aria-labelledby="companyInfo">
+                                <div class="card-header">
+                                    {{'Company Information'}}
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-nowrap mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:30%;">Department</td>
+                                                    <td>{{$employee->employees->departments->department}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Designation</td>
+                                                    <td>{{$employee->employees->departments->designations->designation}}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Join Date</td>
+                                                    <td>{{$employee->employees->joinDate}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Leave Date</td>
+                                                    <td>{{$employee->employees->leaveDate}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Status</td>
+                                                    <td>{{$employee->employees->status}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Shift</td>
+                                                    <td>{{$employee->employees->shift}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Hiring Manager</td>
+                                                    <td>{{$employee->employees->hiringManager}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Company Information card end -->
+
+                            <!-- Financial Information card start -->
+                            <div class="card tab-pane text-left fade" id="tab-financialInfo" role="tabpanel"
+                                aria-labelledby="financialInfo">
+                                <div class="card-header">
+                                    {{'Financial Information'}}
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered text-nowrap mb-0">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:30%;">Payscale Type</td>
+                                                    <td>{{$employee->financials->salaryType}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Payscale</td>
+                                                    <td>{{$employee->financials->payScale}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Account Holder Name</td>
+                                                    <td>{{$employee->financials->accHolderName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Account No</td>
+                                                    <td>{{$employee->financials->accNumber}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Bank Name</td>
+                                                    <td>{{$employee->financials->bankName}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Branch Name</td>
+                                                    <td>{{$employee->financials->branch}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width:30%;">Branch Code</td>
+                                                    <td>{{$employee->financials->branchCode}}</td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Financial Information card end -->
                     </div>
-                    <!-- sales overview end -->
-
                 </div>
-            </div>
 
-            <div class="section-body">
-                <!-- body footer start -->
-                @include('templates.footer.body_footer')
-                <!-- body footer end -->
+
             </div>
         </div>
+        <!-- sales overview end -->
+
+    </div>
+    </div>
+
+    <div class="section-body">
+        <!-- body footer start -->
+        @include('templates.footer.body_footer')
+        <!-- body footer end -->
+    </div>
+    </div>
     </div>
 
     <x-footer />

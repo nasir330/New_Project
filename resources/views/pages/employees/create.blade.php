@@ -20,7 +20,7 @@
 
             <div class="section-body mt-3">
                 <div class="container-fluid">
-                   
+
                     <!-- sales overview start -->
                     <div class="row clearfix row-deck">
                         <div class="col mb-2">

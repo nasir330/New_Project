@@ -7726,8 +7726,8 @@ body {
     -ms-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
     transition: all 0.4s ease-in-out;
-    background-color: #f4f6f9;
-    color: #434A54;
+    background-color: #fff;
+    color: #222;
     direction: ltr;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

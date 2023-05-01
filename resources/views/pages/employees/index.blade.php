@@ -81,7 +81,7 @@
                                                                         </a>
                                                                     </li>
                                                                     <li class="dropdown-item">
-                                                                        <a href="javascript:void(0)">
+                                                                    <a href="{{route('edit.employee',['id'=>$employee->id])}}">
                                                                             <i class="dropdown-icon fa fa-edit"></i>
                                                                             edit
                                                                         </a>

@@ -103,6 +103,64 @@ class userController extends Controller
         $employee = User::find($id);
         return view('pages.employees.view',['employee' => $employee]);
      }
+     //edit employees profile
+     public function edit($id)
+     {
+        $employee = User::find($id);
+        $departments = Department::all();    
+        $designations = Designation::all();          
+        return view('pages.employees.edit',['employee' => $employee, 'departments'=> $departments, 'designations'=> $designations]);
+     }
+     //employees photoUpdate
+     public function photoUpdate(Request $request)
+     {
+        $url = "storage/";
+        $photo = $request->file('photo');
+        $photo_name = $photo->getClientOriginalName();      
+        $photo_storage = $photo->storeAs("public/uploads", $photo_name);
+        $photo_path = 'storage/uploads/'.$photo_name;
+
+        Employees::where('userId',$request->id)->update([
+            'photo'=> $photo_path,
+         ]);
+         session()->flash('success','Photo updated successfully..!!');
+        return redirect()->back();
+     }
+     //employees infoUpdate
+     public function infoUpdate(Request $request)
+     {
+        Employees::where('userId',$request->id)->update([
+            'firstName'=> $request->firstName,
+            'lastName'=> $request->lastName,
+            'fathersName'=> $request->fathersName,
+            'gender'=> $request->gender,
+            'dob'=> $request->dob,
+            'phone'=> $request->phone,
+            'presentAddress'=> $request->presentAddress,
+            'permanentAddress'=> $request->permanentAddress,
+            'referenceName'=> $request->referenceName,
+            'referencePhone'=> $request->referencePhone,
+            'govId'=> $request->govId,
+            'govIdNo'=> $request->govIdNo,
+         ]);
+         session()->flash('success','Employee Info updated successfully..!!');
+        return redirect()->back();
+     }
+     //employees companyInfoUpdate
+     public function companyInfoUpdate(Request $request)
+     {       
+        Employees::where('userId',$request->id)->update([
+            'department'=> $request->department,
+            'designation'=> $request->designation,
+            'joinDate'=> $request->joinDate,
+            'leaveDate'=> $request->leaveDate,
+            'status'=> $request->status,
+            'shift'=> $request->shift,
+            'hiringManager'=> $request->hiringManager,
+         ]);
+         session()->flash('success','Company Info updated successfully..!!');
+        return redirect()->back();
+     }
     public function exportUser()
     {
       return Excel::download(new UsersExport, 'users.xls');

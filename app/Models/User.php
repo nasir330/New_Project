@@ -46,6 +46,10 @@ class User extends Authenticatable
     public function employees() {
         return $this->hasOne(Employees::class, 'userId', 'id');
     }
+    //table relation with financial
+    public function financials() {
+        return $this->hasOne(Financial::class, 'userId', 'id');
+    }
 
     protected static function boot()
     {

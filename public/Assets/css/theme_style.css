@@ -47,23 +47,32 @@ a{
    color:#fff;
  }
  #employeePhoto img {
-   width: 30%;  
+   width: 50%;  
    border: 2px solid #283041;
    border-radius: 50%;
 }
 .photo-edit-btn {
-   width: 25px;
-   height: 25px;
+   width: 36px;
+   height: 36px;
    border-radius: 50%;
    background-color: gainsboro;
-   border: 1px solid #00A9BD;
+   border: 1.5px solid #283041;
    position: absolute;
-   bottom: 15%;
-   left: 55%;
+   top: 13%;
+   left: 60%;
 }
-#employeePhoto .icon{
+.photo-edit-btn .icon{
+   color: #283041;
+  font-size:20px;
+  margin:20% auto;
+}
+.photo-edit-btn:hover{
+   background-color: #283041;
+   border: 2px solid #00A9BD;
+}
+.icon:hover{
    color: #00A9BD;
-   font-size:18px;
+   scale: 1.1;
 }
  
 /* Mobile device */
