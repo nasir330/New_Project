@@ -172,8 +172,9 @@
                                                 </tbody>
                                             </table>
                                             <div class="col-md-4 mt-2">
-                                                <button type="submit" class="btn btn-primary form-control">Update
-                                                    Now</button>
+                                                <button type="submit" class="btn btn-primary form-control">
+                                                    Update Now
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -278,8 +279,9 @@
                                                 </tbody>
                                             </table>
                                             <div class="col-md-4 mt-2">
-                                                <button type="submit" class="btn btn-primary form-control">Update
-                                                    Now</button>
+                                                <button type="submit" class="btn btn-primary form-control">
+                                                    Update Now
+                                                </button>
                                             </div>
                                         </form>
                                     </div>
@@ -291,52 +293,94 @@
                             <div class="card tab-pane text-left fade" id="tab-financialInfo" role="tabpanel"
                                 aria-labelledby="financialInfo">
                                 <div class="card-header">
-                                    {{'Financial Information'}}
+                                    {{ 'Financial Information' }}
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered text-nowrap mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td style="width:30%;">Payscale Type</td>
-                                                    <td>{{$employee->financials->salaryType}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:30%;">Payscale</td>
-                                                    <td>{{$employee->financials->payScale}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:30%;">Account Holder Name</td>
-                                                    <td>{{$employee->financials->accHolderName}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:30%;">Account No</td>
-                                                    <td>{{$employee->financials->accNumber}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:30%;">Bank Name</td>
-                                                    <td>{{$employee->financials->bankName}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:30%;">Branch Name</td>
-                                                    <td>{{$employee->financials->branch}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td style="width:30%;">Branch Code</td>
-                                                    <td>{{$employee->financials->branchCode}}</td>
-                                                </tr>
+                                        <form action="{{route('financialInfoUpdate.employee')}}" method="post">
+                                            @csrf
+                                            <table class="table table-bordered text-nowrap mb-0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="width:30%;">Payscale Type</td>
+                                                        <td>
+                                                            <input type="hidden" name="id" value="{{ $employee->id }}">
+                                                            <select name="salaryType" class="form-select form-control"
+                                                                required>
+                                                                <option value="{{ $employee->financials->salaryType }}">
+                                                                    {{ $employee->financials->salaryType }}</option>
+                                                                <option value="Monthly">Monthly</option>
+                                                                <option value="Weekly">Weekly</option>
+                                                                <option value="Daily">Daily</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:30%;">Payscale</td>
+                                                        <td>
+                                                            <select name="payScale" class="form-select form-control"
+                                                                required>
+                                                                <option value=" {{ $employee->financials->payScale }}">
+                                                                    {{ $employee->financials->payScale }}</option>
+                                                                <option value="10000">10000</option>
+                                                                <option value="2400">2400</option>
+                                                                <option value="50">50</option>
+                                                            </select>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:30%;">Account Holder Name</td>
+                                                        <td>
+                                                            <input class="form-control" type="text" name="accHolderName"
+                                                                value="{{ $employee->financials->accHolderName }}">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:30%;">Account No</td>
+                                                        <td>
+                                                            <input class="form-control" type="text" name="accNumber"
+                                                                value="{{ $employee->financials->accNumber }}">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:30%;">Bank Name</td>
+                                                        <td>
+                                                            <input class="form-control" type="text" name="bankName"
+                                                                value="{{ $employee->financials->bankName }}">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:30%;">Branch Name</td>
+                                                        <td>
+                                                            <input class="form-control" type="text" name="branch"
+                                                                value="{{ $employee->financials->branch }}">
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="width:30%;">Branch Code</td>
+                                                        <td>
+                                                            <input class="form-control" type="text" name="branchCode"
+                                                                value="{{ $employee->financials->branchCode }}">
+                                                        </td>
+                                                    </tr>
 
-                                            </tbody>
-                                        </table>
+                                                </tbody>
+                                            </table>
+                                            <div class="col-md-4 mt-2">
+                                                <button type="submit" class="btn btn-primary form-control">
+                                                    Update Now
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
+                            <!-- Financial Information card end -->
+
+
                         </div>
-                        <!-- Financial Information card end -->
                     </div>
                 </div>
-
-
             </div>
         </div>
         <!-- sales overview end -->

@@ -111,6 +111,15 @@ class userController extends Controller
         $designations = Designation::all();          
         return view('pages.employees.edit',['employee' => $employee, 'departments'=> $departments, 'designations'=> $designations]);
      }
+     //delete employees profile
+     public function delete($id)
+     {       
+        User::destroy($id);
+        Employees::destroy($id);
+        Financial::destroy($id);
+        session()->flash('delete','Account Deleted ..!!');
+        return redirect()->back();
+     }
      //employees photoUpdate
      public function photoUpdate(Request $request)
      {
@@ -159,6 +168,21 @@ class userController extends Controller
             'hiringManager'=> $request->hiringManager,
          ]);
          session()->flash('success','Company Info updated successfully..!!');
+        return redirect()->back();
+     }
+     //employees financialInfoUpdate
+     public function financialInfoUpdate(Request $request)
+     {            
+        Financial::where('userId',$request->id)->update([
+            'salaryType'=> $request->salaryType,
+            'payScale'=> $request->payScale,
+            'accHolderName'=> $request->accHolderName,
+            'accNumber'=> $request->accNumber,
+            'bankName'=> $request->bankName,
+            'branch'=> $request->branch,
+            'branchCode'=> $request->branchCode,
+         ]);
+         session()->flash('success','Financial Info updated successfully..!!');
         return redirect()->back();
      }
     public function exportUser()

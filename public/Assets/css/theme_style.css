@@ -46,6 +46,9 @@ a{
    background-color: #283041;
    color:#fff;
  }
+ #employeePhoto {
+  position:relative;
+}
  #employeePhoto img {
    width: 50%;  
    border: 2px solid #283041;
@@ -58,7 +61,7 @@ a{
    background-color: gainsboro;
    border: 1.5px solid #283041;
    position: absolute;
-   top: 13%;
+   bottom: 1%;
    left: 60%;
 }
 .photo-edit-btn .icon{

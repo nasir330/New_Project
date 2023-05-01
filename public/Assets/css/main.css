@@ -10715,7 +10715,9 @@ img {
 .card-value i {
     vertical-align: middle
 }
-
+/* #option-container{
+    position: relative;
+} */
 .card-options {
     color: #9aa0ac;
     margin-left: auto;
@@ -10723,6 +10725,7 @@ img {
     order: 100;
     align-self: center;
     position: absolute;
+    right:5%;
     z-index: 9999;
 }
 
