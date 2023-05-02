@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\CompanyProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,7 +28,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    //Stafs routes
+    //employees routes
     Route::get('/employee-list', [userController::class, 'index'])->name('employee.list');
     Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
     Route::get('/add-employee', [userController::class, 'create'])->name('add.employee');
@@ -40,7 +41,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/employee-company-info-update',[UserController::class,'companyInfoUpdate'])->name('companyInfoUpdate.employee');
     Route::post('/employee-financial-info-update',[UserController::class,'financialInfoUpdate'])->name('financialInfoUpdate.employee');
 
-
+    //company profile
+    route::get('/setting-profile',[CompanyProfileController::class, 'index'])->name('setting.profile');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

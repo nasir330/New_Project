@@ -12,8 +12,6 @@
     </div>
     <nav id="left-sidebar-nav" class="sidebar-nav">
         <ul class="metismenu">
-            <li class="g_heading">Management</li>
-            <!-- Management menu list start -->
             <li class="active">
                 <a href="{{route('dashboard')}}">
                     <i class="fas fa-home"></i>
@@ -42,19 +40,19 @@
             </li>
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-handcuffs"></i>
+                    <i class="fa-solid fa-clipboard-user"></i>
                     <span>Attendance</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-user-check"></i>
                             Daily Attendance
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-file-lines"></i>
                             Attendance Report
                         </a>
                     </li>
@@ -62,19 +60,19 @@
             </li>
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-handcuffs"></i>
+                    <i class="fa-solid fa-bed"></i>
                     <span>Leaves</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-plus"></i>
                             Add Leaves
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-sliders"></i>
                             Manage Leaves
                         </a>
                     </li>
@@ -82,109 +80,105 @@
             </li>
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-handcuffs"></i>
+                    <i class="fa-solid fa-coins"></i>
                     <span>Payrolls</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-users"></i>
-                            Payscale
+                            <i class="fa-solid fa-ticket"></i>
+                            Create Payslip
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
-                            Monthly
+                            <i class="fa-solid fa-list"></i>
+                            Payslip List
                         </a>
                     </li>
                 </ul>
             </li>
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-handcuffs"></i>
+                    <i class="fa-solid fa-flag"></i>
                     <span>Holidays</span>
                 </a>
                 <ul>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-users"></i>
+                            <i class="fa-solid fa-plus"></i>
                             Add Holiday
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-sliders"></i>
                             Manage Holiday
                         </a>
                     </li>
                 </ul>
             </li>
-            <!-- Management menu list end -->
 
-            <li class="g_heading">Services</li>
-            <!-- Services menu list start -->
             <li>
                 <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-people-group"></i>
+                    <i class="fa-solid fa-gear"></i>
                     <span>Settings</span>
                 </a>
                 <ul>
                     <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-people-group"></i>
+                        <a href="{{route('setting.profile')}}">
+                            <i class="fa-solid fa-building"></i>
                             Company Details
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-tags"></i>
                             Departments
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-id-badge"></i>
                             Designation
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-calculator"></i>
                             Allowance & Deduction
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-money-bill-trend-up"></i>
                             Payscale
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-bed"></i>
                             Leave Type
                         </a>
                     </li>
                     <li>
                         <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
+                            <i class="fa-solid fa-mountain-sun"></i>
                             Shift
                         </a>
                     </li>
                 </ul>
             </li>
-            <!-- Services menu list end -->
 
             <li>
-                <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-truck-field-un"></i>
+                <a href="javascript:void(0)">
+                    <i class="fa-solid fa-user-gear"></i>
                     <span>Managers</span>
-                </a>               
+                </a>
             </li>
             <li>
                 <a href="login.html">
-                    <i class="fa-solid fa-folder-open"></i>
+                    <i class="fa-solid fa-file-csv"></i>
                     Activity Log
                 </a>
             </li>
