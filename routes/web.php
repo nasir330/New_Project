@@ -43,6 +43,10 @@ Route::middleware('auth')->group(function () {
 
     //company profile
     route::get('/setting-profile',[CompanyProfileController::class, 'index'])->name('setting.profile');
+    route::post('/setting-profile-company-details',[CompanyProfileController::class, 'storeCompanyDetails'])->name('setting.profile.companyDetails');
+    route::post('/setting-profile-logo-header-footer',[CompanyProfileController::class, 'storeLogoHeaderFooter'])->name('setting.profile.logoHeaderFooter');
+    route::post('/setting-profile-payment-account',[CompanyProfileController::class, 'storePaymentAccount'])->name('setting.profile.paymentAccount');
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

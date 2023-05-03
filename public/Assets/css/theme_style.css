@@ -54,6 +54,7 @@ a{
    border: 2px solid #283041;
    border-radius: 50%;
 }
+
 .photo-edit-btn {
    width: 36px;
    height: 36px;
@@ -76,6 +77,11 @@ a{
 .icon:hover{
    color: #00A9BD;
    scale: 1.1;
+}
+#companyLogo img {
+   width: 100%;  
+   border: 2px solid #283041;
+   border-radius: 10%;
 }
  
 /* Mobile device */
