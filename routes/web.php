@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CustomFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('main');
+Route::get('/custom-form-submit', function () {
+    return view('customForm');
+})->name('test.form.submit');
+Route::post('/custom-form-submit',[CustomFormController::class,'index'])->name('test.form.submit');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
