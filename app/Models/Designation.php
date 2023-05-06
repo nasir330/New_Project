@@ -12,4 +12,9 @@ class Designation extends Model
     protected $fillable = [
         'designation',
     ];
+
+     //table relation with Departments
+     public function departments() {
+        return $this->belongsTo(Department::class, 'departmentId', 'id');
+    }
 }

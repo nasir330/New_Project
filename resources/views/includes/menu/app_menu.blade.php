@@ -132,13 +132,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="login.html">
+                        <a href="{{route('departments')}}">
                             <i class="fa-solid fa-tags"></i>
                             Departments
                         </a>
                     </li>
                     <li>
-                        <a href="login.html">
+                        <a href="{{route('designations')}}">
                             <i class="fa-solid fa-id-badge"></i>
                             Designation
                         </a>

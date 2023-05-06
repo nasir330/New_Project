@@ -5,6 +5,8 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\CompanyProfileController;
+use App\Http\Controllers\DepartmentsController;
+use App\Http\Controllers\DesignationsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,19 @@ Route::middleware('auth')->group(function () {
     route::post('/setting-profile-company-details',[CompanyProfileController::class, 'storeCompanyDetails'])->name('setting.profile.companyDetails');
     route::post('/setting-profile-logo-header-footer',[CompanyProfileController::class, 'storeLogoHeaderFooter'])->name('setting.profile.logoHeaderFooter');
     route::post('/setting-profile-payment-account',[CompanyProfileController::class, 'storePaymentAccount'])->name('setting.profile.paymentAccount');
+    
+    //Departments
+    route::get('/departments',[DepartmentsController::class, 'index'])->name('departments');
+    route::post('/add-departments',[DepartmentsController::class, 'store'])->name('add.departments');
+    route::get('/edit-departments/{id}',[DepartmentsController::class, 'edit'])->name('edit.departments');
+    route::post('/edit-departments',[DepartmentsController::class, 'update'])->name('edit.departments');
+   
+    //Designation
+    route::get('/designations',[DesignationsController::class, 'index'])->name('designations');
+    route::post('/add-designations',[DepartmentsController::class, 'store'])->name('add.designations');
+    route::get('/edit-departments/{id}',[DepartmentsController::class, 'edit'])->name('edit.departments');
+    route::post('/edit-departments',[DepartmentsController::class, 'update'])->name('edit.departments');
+   
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

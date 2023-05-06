@@ -427,7 +427,7 @@
                                                         <label for="currency" class="mb-0">Currency Type</label>
                                                         <div class="input-group mb-2">
                                                             <select name="currency" class="form-select form-control">
-                                                                <option value="">{{$data->currency}}</option>
+                                                                <option value="{{$data->currency}}">{{$data->currency}}</option>
                                                                 <option value="USD">USD</option>
                                                                 <option value="GBP">GBP</option>
                                                                 <option value="EUR">EUR</option>
@@ -440,7 +440,7 @@
                                                         <label for="walletName" class="mb-0">E-Wallet Name</label>
                                                         <div class="input-group mb-2">
                                                             <select name="walletName" class="form-select form-control">
-                                                                <option value="">{{$data->walletName}}</option>
+                                                                <option value="{{$data->walletName}}">{{$data->walletName}}</option>
                                                                 <option value="Skrill">Skrill</option>
                                                                 <option value="Paypal">PayPal</option>
                                                             </select>
