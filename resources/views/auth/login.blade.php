@@ -1,52 +1,60 @@
-<x-header />
+@extends('layouts.app')
+@section('title','Login')
+@section('content')
 
-<body>
-    <div class="col-md-5 card login-form">        
-        @if(session()->has('success'))
-        <div id="successMessage" class="text-center text-success p-1">
-            {{session('success')}}
-        </div>
-        @endif
-        @if(session()->has('error'))
-        <div style="color:red;" id="errorMsg" class="text-center p-1">
-            {{session('error')}}
-            <script>
-        setTimeout(function() {
-            window.location.href = '{{ route('login') }}'; // redirect to the login page after 2 seconds
-        }, 1000);
-    </script>
-        </div>
-        @endif
-        <x-input-error :messages="$errors->get('email')" style="list-style:none;" class="text-danger mt-2" />
-        <x-input-error :messages="$errors->get('username')" style="list-style:none;" class="text-danger mt-2" />
-        <div class="text-center mt-2">
-            <!-- <h5>User Login</h5> -->
-            <h4>User Login</h4>
-        </div>
-        <!-- Login section start -->
-        <form action="{{route('login')}}" method="post">
-            @csrf
-            <div class="card-body text-white">
-                <div class="form-group">
-                    <label for="username">User Email</label>
-                    <div class="input-group mb-2">
-                        <input type="email" name="email" class="form-control" placeholder="Enter email address">
+<div class="authentication">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-sm-12">
+                <form class="card auth_form">
+                    <div class="header">
+                        <img class="logo" src="{{asset('Assets/img/logo.svg')}}" alt="Company Logo">
+                        <h5>Log in</h5>
                     </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">User password</label>
-                    <div class="input-group mb-2">
-                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+                    <div class="body">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Username">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><a href="forgot-password.html" class="forgot"
+                                        title="Forgot Password"><i class="zmdi zmdi-lock"></i></a></span>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <input id="remember_me" type="checkbox">
+                            <label for="remember_me">Remember Me</label>
+                        </div>
+                        <a href="index.html" class="btn btn-primary btn-block waves-effect waves-light">SIGN IN</a>
+                        <div class="signin_with mt-3">
+                            <p class="mb-0">or Sign Up using</p>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round facebook"><i
+                                    class="zmdi zmdi-facebook"></i></button>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round twitter"><i
+                                    class="zmdi zmdi-twitter"></i></button>
+                            <button class="btn btn-primary btn-icon btn-icon-mini btn-round google"><i
+                                    class="zmdi zmdi-google-plus"></i></button>
+                        </div>
                     </div>
+                </form>
+                <div class="copyright text-center">
+                    &copy;
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script>,
+                    <span><a href="templatespoint.net">Templates Point</a></span>
                 </div>
-                <div class="input-group">
-                    <button class="form-control btn theme-btn">Login</button>
+            </div>
+            <div class="col-lg-8 col-sm-12">
+                <div class="card">
+                    <img src="{{asset('Assets/img/signin.svg')}}" alt="Sign In" />
                 </div>
-        </form>
-        <div class="row text-right mt-3">
-        <a href="{{route('password.request')}}" > <strong>Forgot password ?</strong> </a>
+            </div>
         </div>
-        <!-- Login section end -->
     </div>
-    <x-footer />
+</div>
+@endsection
