@@ -13,61 +13,34 @@ use PDF;
 class InvoiceEmail extends Mailable
 {
     use Queueable, SerializesModels;
-    protected $pdf;
-    protected $invoiceId;
+    
+    public $pdf;
+    public $id;
     /**
      * Create a new message instance.
      *
-     * * @param  \PDF  $pdf
-     * @param  int  $invoiceId
-     * @return void     
+     * @param PDF $pdf
+     * @param int $id
      */
-    public function __construct($pdf, $invoiceId)
+    public function __construct($pdf, $id)
     {
         $this->pdf = $pdf;
-        $this->invoiceId = $invoiceId;
+        $this->id = $id;
     }
 
     /**
-     * Get the message envelope.
+     * Build the message.
      *
-     * @return \Illuminate\Mail\Mailables\Envelope
+     * @return $this
      */
-    public function envelope()
+    public function build()
     {
-        return new Envelope(
-            subject: "Invoice # $this->invoiceId",
-        );
-    }
+        $subject = 'Invoice #' . $this->id;
 
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
-    public function content()
-    {
-        return new Content(
-            view: 'emails.invoice',
-            data: [
-                'pdf' => $this->pdf,
-                'invoiceId' => $this->invoiceId,
-            ]
-        );
-    }
-
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array
-     */
-    public function attachments()
-    {
-        return [
-            [
-                'data' => $this->pdf->output(),
-                'name' => "invoice_{$this->invoiceId}.pdf",
-            ],
-        ];
+        return $this->subject($subject)
+                    ->view('ticketpdf')
+                    ->attachData($this->pdf->output(), 'invoice.pdf', [
+                        'mime' => 'application/pdf',
+                    ]);
     }
 }

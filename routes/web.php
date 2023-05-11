@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\TicketController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,14 @@ use App\Http\Controllers\userController;
 |
 */
 
+Route::get('/test', function () {
+    return view('test');
+})->name('test');
+Route::post('submit-ticket',[TicketController::class, 'store'])->name('ticket.submit');
+Route::get('get-pdf/{id}',[TicketController::class, 'pdf'])->name('ticket.pdf');
+Route::get('/submit-ticket-success', function () {
+    return view('pageSuccess');
+})->name('pageSuccess');
 Route::get('/',[AppController::class, 'index']);
 Route::get('/password-reset-notification', function () {
     return view('notification.password-request');

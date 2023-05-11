@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>@yield('title','Aero Admin Template')</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <!-- FontAwsome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -27,13 +26,76 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
-   
+    <style>
+        section{           
+            text-align:center;
+        }
+      
+        table{
+            width:850px;
+        }
+    table.table-bordered {
+        border: 1px solid blue;
+        margin-top: 20px;
+    }
+
+    table.table-bordered>thead>tr>th {
+        border: 1px solid blue;
+        background-color:#CCCCFF;
+        padding:4px;
+        text-align:center;
+    }
+
+    table.table-bordered>tbody>tr>td {
+        border: 0.5px solid blue;
+        padding:4px;
+        text-align:center;
+    }
+    </style>
 </head>
 
-<body class="font-sans antialiased">
-    @yield('content')
+<body>
+<section>
+<img style="width:120px;" src="{{ $message->embed(public_path().'/logo2.png') }}" alt="logo" class="img-fluid" />
+</section>
+    Dear {{ $pdfTicket->firstName.' '. $pdfTicket->lastName }},
 
+    <p>
+        You have successfully purchase a ticket. Please see the following information on your ticket purchase and
+        attached ticket file.
+    </p>
 
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>{{$pdfTicket->id}}</td>
+            <td>{{$pdfTicket->firstName.' '. $pdfTicket->lastName }}</td>
+            <td>{{$pdfTicket->gender}}</td>
+            <td>{{$pdfTicket->age}}</td>
+            <td>{{$pdfTicket->phone}}</td>
+            <td>{{$pdfTicket->email}}</td>
+            <td>{{$pdfTicket->price}}</td>
+        </tr>
+    </table>
+
+    <p>
+        <strong>This ticket is purchase at {{$pdfTicket->created_at}}</strong>
+    </p>
+    <p>
+        Best regards, <br>
+        <em>Author</em> <br>
+        <strong>Roxie Humberg</strong>
+    </p>
 
     <!-- bootstrap cdn JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
