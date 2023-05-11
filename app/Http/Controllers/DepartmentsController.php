@@ -23,7 +23,7 @@ class DepartmentsController extends Controller
     //edit department
     public function edit($id)
     {
-        $department = Department::find($id);
+        $department = Department::where('id',$id)->first();
         return view('pages.departments.edit',['department' => $department]);
     }
     //update department

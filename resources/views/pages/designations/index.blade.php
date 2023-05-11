@@ -57,7 +57,7 @@
                                                 <div class="col-md-6">
                                                     <label for="department" class="mb-0">Department</label>
                                                     <div class="input-group mb-2">
-                                                    <select name="department" class="form-select form-control"
+                                                    <select name="departmentId" class="form-select form-control"
                                                             required>
                                                             <option value="">--Select Department--</option>
                                                             @foreach($departments as $key=> $department)
@@ -100,7 +100,7 @@
                                                                 <ul class="dropdown-menu">
                                                                     <li class="dropdown-item">
                                                                         <a
-                                                                            href="{{route('edit.departments',['id'=>$data->id])}}">
+                                                                            href="{{route('edit.designations',['id'=>$data->id])}}">
                                                                             <i class="dropdown-icon fa fa-edit"></i>
                                                                             edit
                                                                         </a>

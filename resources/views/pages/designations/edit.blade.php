@@ -39,15 +39,22 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="col-md-6 d-flex justify-content-start mb-3">
-                                        <form action="{{route('edit.departments')}}" method="POST">
+                                        <form action="{{route('update.designations')}}" method="POST">
                                             @csrf
                                             <div class="row">
-                                                <div class="form-group">
+                                                <div class="form-group mb-2">
                                                     <label for="first_name">Department Name</label>
                                                     <div class="input-group">
-                                                        <input type="hidden" name="departmentId" value="{{$department->id}}">
-                                                        <input type="text" name="department" class="form-control"
-                                                            value="{{$department->department}}">
+                                                        <strong> {{$designation->departments->department}}</strong>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="first_name">Designation</label>
+                                                    <div class="input-group">
+                                                        <input type="hidden" name="designationtId"
+                                                            value="{{$designation->id}}">
+                                                        <input type="text" name="designation" class="form-control"
+                                                            value="{{$designation->designation}}">
                                                     </div>
                                                 </div>
                                                 <div class="row mt-2">
@@ -57,7 +64,8 @@
                                                         </button>
                                                     </div>
                                                     <div class="col-auto">
-                                                        <a href="{{route('departments')}}" class="btn btn-warning">Cancel</a>
+                                                        <a href="{{route('designations')}}"
+                                                            class="btn btn-warning">Cancel</a>
                                                     </div>
                                                 </div>
                                             </div>

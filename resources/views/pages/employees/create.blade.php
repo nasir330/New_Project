@@ -225,7 +225,7 @@
                                                             <div class="col-md-6">
                                                                 <label for="department" class="mb-0">Department</label>
                                                                 <div class="input-group mb-2">
-                                                                    <select name="department"
+                                                                    <select id="department" name="department"
                                                                         class="form-select form-control" required>
                                                                         <option value="">--Select Department--</option>
                                                                         @foreach($departments as $key=> $department)

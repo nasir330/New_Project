@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="col-md-6 d-flex justify-content-start mb-3">
-                                        <form action="{{route('edit.departments')}}" method="POST">
+                                        <form action="{{route('update.departments')}}" method="POST">
                                             @csrf
                                             <div class="row">
                                                 <div class="form-group">

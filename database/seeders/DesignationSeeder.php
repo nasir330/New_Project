@@ -24,6 +24,10 @@ class DesignationSeeder extends Seeder
         [
             'departmentId' => '2',
             'designation' => 'Manager',
+        ],                    
+        [
+            'departmentId' => '3',
+            'designation' => 'Manager',
         ]                    
     ];
 //create a loop to run multiple

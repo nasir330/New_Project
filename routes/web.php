@@ -53,13 +53,13 @@ Route::middleware('auth')->group(function () {
     route::get('/departments',[DepartmentsController::class, 'index'])->name('departments');
     route::post('/add-departments',[DepartmentsController::class, 'store'])->name('add.departments');
     route::get('/edit-departments/{id}',[DepartmentsController::class, 'edit'])->name('edit.departments');
-    route::post('/edit-departments',[DepartmentsController::class, 'update'])->name('edit.departments');
+    route::post('/update-departments',[DepartmentsController::class, 'update'])->name('update.departments');
    
     //Designation
     route::get('/designations',[DesignationsController::class, 'index'])->name('designations');
-    route::post('/add-designations',[DepartmentsController::class, 'store'])->name('add.designations');
-    route::get('/edit-departments/{id}',[DepartmentsController::class, 'edit'])->name('edit.departments');
-    route::post('/edit-departments',[DepartmentsController::class, 'update'])->name('edit.departments');
+    route::post('/add-designations',[DesignationsController::class, 'store'])->name('add.designations');
+    route::get('/edit-designations/{id}',[DesignationsController::class, 'edit'])->name('edit.designations');
+    route::post('/update-designations',[DesignationsController::class, 'update'])->name('update.designations');
    
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

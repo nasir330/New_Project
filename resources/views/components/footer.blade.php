@@ -20,6 +20,7 @@
 <script src="{{asset('Assets/js/core.js')}}"></script>
 <script src="{{asset('Assets/js/project-index.js')}}"></script>
 <script src="{{asset('Assets/js/donught.js')}}"></script>
+<script src="{{asset('Assets/js/ajaxQuery.js')}}"></script>
 
 <script>
 $(document).ready(function() {

@@ -18,23 +18,23 @@ class DesignationsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        Department::create($data);
-        session()->flash('success','Department successfully created !!');
+        Designation::create($data);
+        session()->flash('success','Designation successfully created !!');
         return redirect()->back();
     }
     //edit department
     public function edit($id)
     {
-        $department = Department::find($id);
-        return view('pages.departments.edit',['department' => $department]);
+        $designation = Designation::find($id);
+        return view('pages.designations.edit',['designation' => $designation]);
     }
     //update department
     public function update(Request $request)
-    {        
-        Department::where('id',$request->departmentId)->update([
-            'department'=>$request->department,
+    {              
+        Designation::where('id',$request->designationtId)->update([
+            'designation'=>$request->designation,
         ]);
-        session()->flash('success','Department successfully updated !!');
-        return redirect()->route('departments');
+        session()->flash('success','Designations successfully updated !!');
+        return redirect()->route('designations');
     }
 }

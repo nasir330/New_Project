@@ -9,9 +9,7 @@ class Designation extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'designation',
-    ];
+    protected $guarded = [];
 
      //table relation with Departments
      public function departments() {
