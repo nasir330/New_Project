@@ -6,20 +6,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-sm-12">
-                <form class="card auth_form">
+                <form class="card auth_form" action="{{route('login')}}" method="post">
+                    @csrf
                     <div class="header">
                         <img class="logo" src="{{asset('Assets/img/logo.svg')}}" alt="Company Logo">
                         <h5>Log in</h5>
                     </div>
                     <div class="body">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Username">
+                            <input type="email" name="email" class="form-control" placeholder="Username">
                             <div class="input-group-append">
                                 <span class="input-group-text"><i class="zmdi zmdi-account-circle"></i></span>
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Password">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
                             <div class="input-group-append">
                                 <span class="input-group-text"><a href="forgot-password.html" class="forgot"
                                         title="Forgot Password"><i class="zmdi zmdi-lock"></i></a></span>

@@ -25,11 +25,11 @@
 
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{asset('Assets/css/style.min.css')}}">
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+   
 </head>
 
-<body class="theme-blush">
+<body class="theme-blush">         
+    <!-- main content start -->
     @yield('content')
 
     
