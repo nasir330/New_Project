@@ -24,6 +24,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Theme CSS -->
+    <link rel="stylesheet" href="{{asset('Assets/css/footable.bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('Assets/css/style.min.css')}}">
 
 </head>
@@ -32,17 +33,24 @@
     <!-- Right Icon menu Sidebar -->
     <div class="navbar-right">
         <ul class="navbar-nav">
-            <li><a href="#search" class="main_search" title="Search..."><i class="zmdi zmdi-search"></i></a></li>
+            <li>
+                <a href="#search" class="main_search" title="Search...">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </li>
             <li class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-toggle" title="App" data-toggle="dropdown"
-                    role="button"><i class="zmdi zmdi-apps"></i></a>
+                <a href="javascript:void(0);" class="dropdown-toggle" title="App" data-toggle="dropdown" role="button">
+                    <i class="fa-solid fa-sort"></i>
+                </a>
                 <ul class="dropdown-menu slideUp2">
                     <li class="header">App Sortcute</li>
                     <li class="body">
                         <ul class="menu app_sortcut list-unstyled">
                             <li>
                                 <a href="image-gallery.html">
-                                    <div class="icon-circle mb-2 bg-blue"><i class="zmdi zmdi-camera"></i></div>
+                                    <div class="icon-circle mb-2 bg-blue">
+                                        <i class="zmdi zmdi-camera"></i>
+                                    </div>
                                     <p class="mb-0">Photos</p>
                                 </a>
                             </li>
@@ -83,8 +91,12 @@
             </li>
             <li class="dropdown">
                 <a href="javascript:void(0);" class="dropdown-toggle" title="Notifications" data-toggle="dropdown"
-                    role="button"><i class="zmdi zmdi-notifications"></i>
-                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                    role="button">
+                    <i class="fa-solid fa-bell"></i>
+                    <div class="notify">
+                        <span class="heartbit"></span>
+                        <span class="point"></span>
+                    </div>
                 </a>
                 <ul class="dropdown-menu slideUp2">
                     <li class="header">Notifications</li>
@@ -92,7 +104,9 @@
                         <ul class="menu list-unstyled">
                             <li>
                                 <a href="javascript:void(0);">
-                                    <div class="icon-circle bg-blue"><i class="zmdi zmdi-account"></i></div>
+                                    <div class="icon-circle bg-blue">
+                                        <i class="zmdi zmdi-account"></i>
+                                    </div>
                                     <div class="menu-info">
                                         <h4>8 New Members joined</h4>
                                         <p><i class="zmdi zmdi-time"></i> 14 mins ago </p>
@@ -159,13 +173,19 @@
                 </ul>
             </li>
             <li class="dropdown">
-                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button"><i
-                        class="zmdi zmdi-flag"></i>
-                    <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                    <i class="fa-solid fa-flag"></i>
+                    <div class="notify">
+                        <span class="heartbit"></span>
+                        <span class="point"></span>
+                    </div>
                 </a>
                 <ul class="dropdown-menu slideUp2">
-                    <li class="header">Tasks List <small class="float-right"><a href="javascript:void(0);">View
-                                All</a></small></li>
+                    <li class="header">Tasks List
+                        <small class="float-right">
+                            <a href="javascript:void(0);">View All</a>
+                        </small>
+                    </li>
                     <li class="body">
                         <ul class="menu tasks list-unstyled">
                             <li>
@@ -250,21 +270,34 @@
                     </li>
                 </ul>
             </li>
-            <li><a href="javascript:void(0);" class="app_calendar" title="Calendar"><i
-                        class="zmdi zmdi-calendar"></i></a></li>
-            <li><a href="javascript:void(0);" class="app_google_drive" title="Google Drive"><i
-                        class="zmdi zmdi-google-drive"></i></a></li>
-            <li><a href="javascript:void(0);" class="app_group_work" title="Group Work"><i
-                        class="zmdi zmdi-group-work"></i></a></li>
-            <li><a href="javascript:void(0);" class="js-right-sidebar" title="Setting"><i
-                        class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
             <li>
-                <form action="{{route('logout')}}" method="POST">
-                    @csrf
-                    <button class="mega-menu bg-transparent border-0" title="Sign Out">
-                        <i class="zmdi zmdi-power"></i></button>
-                </form>
+                <a href="javascript:void(0);" class="app_calendar" title="Calendar">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </a>
             </li>
+            <li>
+                <a href="javascript:void(0);" class="app_google_drive" title="Google Drive">
+                    <i class="fa-brands fa-google-drive"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="app_group_work" title="Group Work">
+                    <i class="fa-solid fa-layer-group"></i>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" class="js-right-sidebar" title="Setting">
+                    <i class="fa-solid fa-gear zmdi-hc-spin"></i>
+                </a>
+            </li>
+            <form action="{{route('logout')}}" method="POST">
+                @csrf
+                <li>
+                    <button class="mega-menu bg-transparent border-0" title="Sign Out">
+                        <i class="icon fa-solid fa-power-off"></i>
+                    </button>
+                </li>
+            </form>
         </ul>
     </div>
     <!-- left sidebar -->
@@ -291,7 +324,10 @@
 
     <!-- Bundle JS -->
     <script src="{{asset('Assets/js/libscripts.bundle.js')}}"></script>
+    <script src="{{asset('Assets/js/mainscripts.bundle.js')}}"></script>
     <script src="{{asset('Assets/js/vendorscripts.bundle.js')}}"></script>
+    <script src="{{asset('Assets/js/footable.bundle.js')}}"></script>
+    <script src="{{asset('Assets/js/footable.js')}}"></script>
 </body>
 
 </html>

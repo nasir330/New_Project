@@ -14,29 +14,50 @@
                     </div>
                     <div class="body">
                         <div class="input-group mb-3">
-                            <input type="text" name="name" class="form-control" placeholder="Enter Name">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <a href="#name">
+                                        <i class="fa-solid fa-user"></i>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control" placeholder="Enter Email">
-                            <span class="input-group-text"><i class="zmdi zmdi-email"></i></span>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <a href="#email">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
                             <input type="password" name="password" class="form-control" placeholder="Enter Password">
-                            <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <a href="#name">
+                                        <i class="fa-solid fa-lock"></i>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" name="password_confirmation" class="form-control" placeholder="Re-type Password">
-                            <span class="input-group-text"><i class="zmdi zmdi-lock"></i></span>
+                            <input type="password" id="password_confirmation" name="password_confirmation"
+                                class="form-control" placeholder="Re-type Password">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <a href="#password_confirmation">
+                                        <i class="fa-solid fa-lock"></i>
+                                    </a>
+                                </span>
+                            </div>
                         </div>
-                        <div class="checkbox">
-                            <input id="remember_me" type="checkbox">
-                            <label for="remember_me">I read and agree to the <a href="javascript:void(0);">terms of
-                                    usage</a></label>
-                        </div>
+                     
                         <button class="btn btn-primary btn-block waves-effect waves-light">SIGN UP</button>
                         <div class="signin_with mt-3">
-                            <a class="link" href="sign-in.html">You already have a membership?</a>
+                        Already have an account ? <a href="{{route('login')}}"> Login </a>
                         </div>
                     </div>
                 </form>
