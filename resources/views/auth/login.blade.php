@@ -12,6 +12,21 @@
                         <img class="logo" src="{{asset('Assets/img/logo.svg')}}" alt="Company Logo">
                         <h5>Log in</h5>
                     </div>
+                    @if(session()->has('error'))
+                    <div style="color:red;" id="errorMsg" class="text-center p-1">
+                        {{session('error')}}
+                        <script>
+                        setTimeout(function() {
+                            window.location.href = '{{ route('
+                            login ') }}'; // redirect to the login page after 2 seconds
+                        }, 1000);
+                        </script>
+                    </div>
+                    @endif
+                    <x-input-error :messages="$errors->get('email')" style="list-style:none;"
+                        class="text-danger mt-2" />
+                    <x-input-error :messages="$errors->get('username')" style="list-style:none;"
+                        class="text-danger mt-2" />
                     <div class="body">
                         <div class="input-group mb-3">
                             <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
@@ -42,7 +57,7 @@
                             SIGN IN
                         </button>
                         <div class="signin_with mt-3">
-                           Don't have an account ? <a href="{{route('register')}}"> Create </a> here..
+                            Don't have an account ? <a href="{{route('register')}}"> Create </a> here..
                         </div>
                     </div>
                 </form>

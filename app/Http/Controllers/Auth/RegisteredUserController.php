@@ -20,6 +20,10 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
+        if (\App\Models\User::count() > 0) {
+            session()->flash('error','You are not authorized for this action..!!');
+            return view('auth.login');
+        }
         return view('auth.register');
     }
 
@@ -31,13 +35,13 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'userType' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $user = User::create([
-            'name' => $request->name,
+            'userType' => $request->userType,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);

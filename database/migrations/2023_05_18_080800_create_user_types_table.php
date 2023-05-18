@@ -13,14 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts_lists', function (Blueprint $table) {
+        Schema::create('user_types', function (Blueprint $table) {
             $table->id();
-            $table->string('userId');
-            $table->string('name');
-            $table->string('phone');
-            $table->string('company');
-            $table->string('address');
-            $table->string('photo');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts_lists');
+        Schema::dropIfExists('user_types');
     }
 };
