@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+<section style="align-content:center;">
+        <img style="width:120px;" src="{{ $message->embed(public_path().'/logo.png') }}" alt="logo"
+            class="img-fluid" />
+    </section>
 Dear {{ $user->contactsList->name }},
 
 <p>
@@ -24,7 +28,7 @@ Password: {{ $password }}
 <p>
 Best regards, <br>
 <em>Author</em> <br>
-<strong>Prison Management</strong>
+<strong>WDDC Apps</strong>
 </p>
 </body>
 </html>

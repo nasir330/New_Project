@@ -18,8 +18,9 @@ class UserTypeSeeder extends Seeder
        $userType = [
             ['type' => 'Super Admin'],
             ['type' => 'Admin'],
+            ['type' => 'Seller'],
             ['type' => 'Customer'],
-            ['type' => 'Company'],
+            ['type' => 'Supplier'],
        ];
 //create a loop to run multiple
         foreach($userType as $key=> $item){
