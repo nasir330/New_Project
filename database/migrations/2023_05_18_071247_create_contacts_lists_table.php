@@ -16,11 +16,12 @@ return new class extends Migration
         Schema::create('contacts_lists', function (Blueprint $table) {
             $table->id();
             $table->string('userId');
+            $table->string('refId');
             $table->string('name');
             $table->string('phone');
-            $table->string('company');
-            $table->string('address');
-            $table->string('photo');
+            $table->string('company')->nullable();;
+            $table->string('address')->nullable();;
+            $table->string('photo')->nullable();;
             $table->timestamps();
         });
     }

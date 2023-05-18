@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-Dear {{ $user->name }},
+Dear {{ $user->contactsList->name }},
 
 <p>
 Your account has been created successfully. Please use the following login details to access your account:

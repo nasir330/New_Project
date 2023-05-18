@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\HtmlString;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
@@ -19,11 +20,7 @@ class RegisteredUserController extends Controller
      * Display the registration view.
      */
     public function create(): View
-    {
-        if (\App\Models\User::count() > 0) {
-            session()->flash('error','You are not authorized for this action..!!');
-            return view('auth.login');
-        }
+    {       
         return view('auth.register');
     }
 
@@ -34,6 +31,12 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (\App\Models\User::count() > 0) {
+            $errorMessage = 'You are not authorized for this action..!!<br/>' .
+                            'Please <a href="https://www.facebook.com/md.nasirul.5" target="_blank">contact </a>'.'support';
+            session()->flash('error', new HtmlString($errorMessage));
+            return redirect()->route('login');
+        }
         $request->validate([            
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],

@@ -7,9 +7,13 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Dashboard</h2>
+                    <h2>Contacts</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item active"> <i class="fa-solid fa-house"></i> Dashboard</li>
+                        <li class="breadcrumb-item active"> <a href="{{route('dashboard')}}">
+                                <i class="fa-solid fa-home"></i>
+                                Dashboard
+                            </a>
+                        </li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
                             class="fa-solid fa-bars"></i></button>
@@ -25,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>All members list</strong> </h2>
+                            <h2><strong>Contacts list</strong> </h2>
                             @if(session()->has('success'))
                             <div class="alert-success d-flex justify-content-center">{{session('success')}}</div>
                             @endif
@@ -52,41 +56,28 @@
                                 <table class="table table-bordered table-striped table-hover dataTable js-exportable">
                                     <thead>
                                         <tr>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Gender</th>
-                                            <th>Email</th>
+                                            <th>#</th>
+                                            <th>Type</th>
+                                            <th>Name</th>
+                                            <th>Business Name</th>
                                             <th>Phone</th>
-                                            <th>Date</th>
                                             <th>#</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>First Name</th>
-                                            <th>Last Name</th>
-                                            <th>Gender</th>
-                                            <th>Email</th>
-                                            <th>Phone</th>
-                                            <th>Date</th>
-                                            <th>#</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
+                                        @foreach($contacts as $key=> $contact)
                                         <tr>
-                                            <td>{{'db-data'}}</td>
-                                            <td>{{'db-data'}}</td>
-                                            <td>{{'db-data'}}</td>
-                                            <td>{{'db-data'}}</td>
-                                            <td>{{'db-data'}}</td>
-                                            <td>{{'db-data'}}</td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$contact->users->usertypes->type}}</td>
+                                            <td>{{$contact->name}}</td>
+                                            <td>{{$contact->company}}</td>
+                                            <td>{{$contact->phone}}</td>
                                             <td>
-                                                <a href="#"
-                                                    class="text-primary">Edit</a>
-                                                <a href="#"
-                                                    class="text-danger">Delete</a>
+                                                <a href="#" class="text-primary">Edit</a>
+                                                <a href="#" class="text-danger">Delete</a>
                                             </td>
-                                        </tr>                                       
+                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

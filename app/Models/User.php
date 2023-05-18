@@ -42,7 +42,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    //Table relation with userType table
+    public function usertypes() {
+        return $this->belongsTo(UserType::class, 'userType', 'id');
+    }
+    //Table relation with ContactsList table
+    public function contactsList() {
+        return $this->hasOne(ContactsList::class, 'userId', 'id');
+    }
 
     //boot method
     protected static function boot()
@@ -52,7 +59,14 @@ class User extends Authenticatable
         static::creating(function($model){
             if (self::count() === 0) { // check if the user table is empty
                 $model->userType = 1; // set the user_type value to 1
-            }
+                // Insert data into ContactList table
+                $contact = new ContactsList();
+                $contact->userId = "1";
+                $contact->refId = "1";
+                $contact->name = "Super Admin";
+                $contact->phone = "01857797647";
+                $contact->save();
+            }          
         });
     }
 }

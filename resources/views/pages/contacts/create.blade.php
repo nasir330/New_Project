@@ -1,5 +1,5 @@
 @extends('layouts.header')
-@section('title','Dashboard')
+@section('title','Add New Contacts')
 @section('content')
 
 <section class="content">
@@ -7,9 +7,13 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>Dashboard</h2>
+                    <h2>Add New Contacts</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item active"> <i class="fa-solid fa-house"></i> Dashboard</li>
+                        <li class="breadcrumb-item active"> <a href="{{route('contacts.list')}}">
+                                <i class="fa-solid fa-address-book"></i>
+                                Contacts
+                            </a>
+                        </li>
                     </ul>
                     <button class="btn btn-primary btn-icon mobile_menu" type="button"><i
                             class="fa-solid fa-bars"></i></button>
@@ -21,11 +25,20 @@
             </div>
         </div>
         <div class="container-fluid">
-        <div class="row clearfix">
+            <div class="row clearfix">
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h2><strong>Add Member Form</strong> </h2>
+                            <div class="col-auto">
+                                <h2><strong>Add New Contacts</strong> </h2>
+                            </div>
+                            <div class="col-auto">
+                                @if(session()->has('success'))
+                                <div id="errorMsg" class="text-center p-1">
+                                    {{session('success')}}
+                                </div>
+                                @endif
+                            </div>
                             <ul class="header-dropdown">
                                 <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle"
                                         data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -42,38 +55,48 @@
                             </ul>
                         </div>
                         <div class="body">
-                            <form action="{{route('add.contacts')}}" method="POST">
+                            <form action="{{route('add.contacts')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row clearfix">
                                     <div class="col-lg-3 col-md-6 mb-3">
-                                        <p class="mb-0"> <b>First Name</b> </p>
-                                        <input type="text" name="firstName" class="form-control"
-                                            placeholder="Enter First Name">
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 mb-3">
-                                        <p class="mb-0"> <b>Last Name</b> </p>
-                                        <input type="text" name="lastName" class="form-control"
-                                            placeholder="Enter Last Name">
-                                    </div>
-                                    <div class="col-lg-3 col-md-6 mb-3">
-                                        <p class="mb-0"> <b>Gender</b> </p>
-                                        <select name="gender" class="form-control show-tick ms select2"
-                                            data-placeholder="Select">
-                                            <option></option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
+                                        <p class="mb-0"> <b>Name</b> </p>
+                                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-3">
                                         <p class="mb-0"> <b>Email</b> </p>
-                                        <input type="email" name="email" class="form-control" placeholder="Enter email">
+                                        <input type="text" name="email" class="form-control"
+                                            placeholder="Enter Email address">
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-3">
                                         <p class="mb-0"> <b>Phone</b> </p>
-                                        <input type="text" name="phone" class="form-control" placeholder="Enter Phone">
+                                        <input type="text" name="phone" class="form-control"
+                                            placeholder="Enter Phone number">
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <p class="mb-0"> <b>User Type</b> </p>
+                                        <select name="userType" class="form-control show-tick ms select2"
+                                            data-placeholder="Select">
+                                            <option></option>
+                                            @foreach($userTypes as $key=> $userType)
+                                            <option value="{{$userType->id}}">{{$userType->type}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <p class="mb-0"> <b>Business Name</b> </p>
+                                        <input type="text" name="company" class="form-control"
+                                            placeholder="Enter Business Name">
+                                    </div>
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <p class="mb-0"> <b>Address</b> </p>
+                                        <input type="text" name="address" class="form-control"
+                                            placeholder="Enter Address">
                                     </div>
 
+                                    <div class="col-lg-3 col-md-6 mb-3">
+                                        <p class="mb-0"> <b>User Photo</b> </p>
+                                        <input type="file" name="photo" class="form-control">
+                                    </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-6 mb-3">

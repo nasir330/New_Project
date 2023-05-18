@@ -15,12 +15,7 @@
                     @if(session()->has('error'))
                     <div style="color:red;" id="errorMsg" class="text-center p-1">
                         {{session('error')}}
-                        <script>
-                        setTimeout(function() {
-                            window.location.href = '{{ route('
-                            login ') }}'; // redirect to the login page after 2 seconds
-                        }, 1000);
-                        </script>
+                      
                     </div>
                     @endif
                     <x-input-error :messages="$errors->get('email')" style="list-style:none;"
