@@ -30,8 +30,8 @@
                       <i class="fa-solid fa-address-book"></i>
                       <span>Contacts</span></a>
                   <ul class="ml-menu">
-                      <li><a href="#"> <i class="fa-solid fa-plus"></i> Add Contacts</a></li>
-                      <li><a href="#"> <i class="fa-solid fa-list"></i> Contacts List</a></li>
+                      <li><a href="{{route('add.contacts')}}"> <i class="fa-solid fa-plus"></i> Add Contacts</a></li>
+                      <li><a href="{{route('contacts.list')}}"> <i class="fa-solid fa-list"></i> Contacts List</a></li>
                   </ul>
               </li>
               <li>

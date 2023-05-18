@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,11 +27,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    //Stafs routes
-    Route::get('/users-list', [userController::class, 'index'])->name('users.list');
-    Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
-    Route::get('/add-staf', [StafsController::class, 'create'])->name('add.staf');
-    Route::post('/add-staf', [StafsController::class, 'store'])->name('add.staf');
+    //Contacts
+    Route::get('/contacts-list', [ContactsController::class, 'index'])->name('contacts.list');
+    Route::get('/add-contacts', [ContactsController::class, 'create'])->name('add.contacts');
+    Route::post('/add-contacts', [ContactsController::class, 'store'])->name('add.contacts');
+    // Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
 
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
