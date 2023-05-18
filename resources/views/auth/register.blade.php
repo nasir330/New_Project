@@ -13,7 +13,7 @@
                         <span>Register a new membership</span>
                     </div>
                     <div class="body">
-                        <div class="input-group mb-3">
+                        <!-- <div class="input-group mb-3">
                             <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name">
                             <div class="input-group-append">
                                 <span class="input-group-text">
@@ -22,7 +22,7 @@
                                     </a>
                                 </span>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="input-group mb-3">
                             <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email">
                             <div class="input-group-append">
