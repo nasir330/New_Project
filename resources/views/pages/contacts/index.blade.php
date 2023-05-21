@@ -36,20 +36,6 @@
                             @if(session()->has('delete'))
                             <div class="alert-danger d-flex justify-content-center">{{session('delete')}}</div>
                             @endif
-                            <ul class="header-dropdown">
-                                <li class="dropdown"> <a href="javascript:void(0);" class="dropdown-toggle"
-                                        data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="zmdi zmdi-more"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                        <li><a href="javascript:void(0);">Action</a></li>
-                                        <li><a href="javascript:void(0);">Another action</a></li>
-                                        <li><a href="javascript:void(0);">Something else</a></li>
-                                    </ul>
-                                </li>
-                                <li class="remove">
-                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
-                                </li>
-                            </ul>
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -73,8 +59,18 @@
                                             <td>{{$contact->company}}</td>
                                             <td>{{$contact->phone}}</td>
                                             <td>
-                                                <a href="#" class="text-primary">Edit</a>
-                                                <a href="#" class="text-danger">Delete</a>
+                                                <ul class="header-dropdown">
+                                                    <li class="dropdown"> <a href="javascript:void(0);"
+                                                            class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                                            aria-haspopup="true" aria-expanded="false">
+                                                            <i class="fa-solid fa-ellipsis-vertical"></i> </a>
+                                                        <ul class="dropdown-menu dropdown-menu-right slideUp">
+                                                            <li><a href="javascript:void(0);">View</a></li>
+                                                            <li><a href="javascript:void(0);">Edit</a></li>
+                                                            <li><a href="javascript:void(0);">Delete</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
                                             </td>
                                         </tr>
                                         @endforeach

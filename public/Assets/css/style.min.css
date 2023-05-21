@@ -17,6 +17,9 @@
 a{
     text-decoration: none;
 }
+.header-dropdown li{
+    list-style: none;
+}
 .btn:hover,
 .btn:focus,
 .btn:active,
@@ -11600,7 +11603,7 @@ section.content {
     }
 }
 
-.slideUp {
+/* .slideUp {
     animation-name: slideUp;
     -webkit-animation-name: slideUp;
     animation-duration: 1s;
@@ -11660,7 +11663,7 @@ section.content {
     100% {
         -webkit-transform: translateY(0%)
     }
-}
+} */
 
 .slideUp2 {
     animation-name: slideUp2;
