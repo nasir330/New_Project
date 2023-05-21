@@ -64,4 +64,29 @@ class ContactsController extends Controller
          session()->flash('success', 'New Contact created successfully..!!');
         return redirect()->back();
     }
+
+    //view contacts
+    public function view($id)
+    {
+        $contactDetails = ContactsList::where('id',$id)->first();
+        return view('pages.contacts.view', ['contactDetails' => $contactDetails]);
+    }
+    //edit contacts
+    public function edit($id)
+    {
+        $contactDetails = ContactsList::where('id',$id)->first();
+        return view('pages.contacts.edit', ['contactDetails' => $contactDetails]);
+    }
+    //delete contacts
+    public function delete($id)
+    {
+        //selcet user id
+        $userId = ContactsList::where('id', $id)->first();
+
+        User::where('id', $userId->userId)->delete();
+        ContactsList::where('id', $userId->id)->delete();
+
+        session()->flash('delete','Account Deleted Successfully..!!');
+        return redirect()->route('contacts.list'); 
+    }
 }

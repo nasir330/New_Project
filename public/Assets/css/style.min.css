@@ -20,6 +20,9 @@ a{
 .header-dropdown li{
     list-style: none;
 }
+.photo-edit-btn .icon{
+    font-size:48px;
+}
 .btn:hover,
 .btn:focus,
 .btn:active,

@@ -65,9 +65,9 @@
                                                             aria-haspopup="true" aria-expanded="false">
                                                             <i class="fa-solid fa-ellipsis-vertical"></i> </a>
                                                         <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                                            <li><a href="javascript:void(0);">View</a></li>
-                                                            <li><a href="javascript:void(0);">Edit</a></li>
-                                                            <li><a href="javascript:void(0);">Delete</a></li>
+                                                            <li><a href="{{route('view.contacts',['id'=>$contact->id])}}">View</a></li>
+                                                            <li><a href="{{route('edit.contacts',['id'=>$contact->id])}}">Edit</a></li>
+                                                            <li><a href="{{route('delete.contacts',['id'=>$contact->id])}}">Delete</a></li>
                                                         </ul>
                                                     </li>
                                                 </ul>
