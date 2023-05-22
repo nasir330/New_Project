@@ -77,6 +77,33 @@ class ContactsController extends Controller
         $contactDetails = ContactsList::where('id',$id)->first();
         return view('pages.contacts.edit', ['contactDetails' => $contactDetails]);
     }
+    //update contacts photo
+    public function updatePhoto(Request $request)
+    {
+         // Save the user's photo
+         $photo = $request->file('photo');
+         $photo_name = $photo->getClientOriginalName();
+         $photo_storage = $photo->storeAs("public/uploads", $photo_name);
+         $photo_path = 'storage/uploads/'.$photo_name;
+
+       ContactsList::where('id',$request->contactId)->update([
+        'photo' =>  $photo_path,        
+       ]);
+       session()->flash('success','Photo updated Successfully..!!');
+       return redirect()->back(); 
+    }
+    //update contacts
+    public function update(Request $request)
+    {        
+       ContactsList::where('id',$request->contactId)->update([
+        'name' => $request->name,
+        'company' => $request->company,
+        'phone' => $request->phone,
+        'address' => $request->address,
+       ]);
+       session()->flash('success','Details updated Successfully..!!');
+       return redirect()->back(); 
+    }
     //delete contacts
     public function delete($id)
     {

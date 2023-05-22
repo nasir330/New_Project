@@ -41,7 +41,8 @@
     <p>
         Best regards, <br>
         <em>Author</em> <br>
-        <strong>WDDC Apps</strong>
+        <strong>Seba Enterprise</strong> <br>
+        Shakpala Shajahanpur, Bogra
     </p>
 </body>
 

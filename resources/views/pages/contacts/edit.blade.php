@@ -24,50 +24,72 @@
                             class="fa-solid fa-arrows-left-right"></i></button>
                 </div>
             </div>
+            <div class="row">
+                @if(session()->has('success'))
+                <div class="alert-success d-flex justify-content-center">{{session('success')}}</div>
+                @endif
+            </div>
         </div>
         <div class="container-fluid">
             <div class="row clearfix">
                 <div class="col-lg-12 col-md-12">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-12">
-                            <div class="card mcard_3">
-                                <div class="body">
-                                    @if(empty($contactDetails->photo))
-                                    <span class="photo-edit-btn">
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="icon fa-solid fa-camera p-2"></i>
+                    <form action="{{route('update.contacts')}}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-4 col-md-12">
+                                <div class="card mcard_3">
+                                    <div class="body">
+                                        <span id="photoEdit" class="photo-edit-btn">
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i class="icon fa-solid fa-camera p-2"></i>
+                                            </a>
+                                        </span>
+                                        <a href="profile.html">
+                                            <img src="{{asset('')}}{{$contactDetails->photo}}"
+                                                class="rounded-circle shadow " alt="profile-image">
                                         </a>
-                                    </span>
-                                    @else
-                                    <a href="profile.html">
-                                        <img src="{{asset('')}}{{$contactDetails->photo}}"
-                                            class="rounded-circle shadow " alt="profile-image">
-                                    </a>
-                                    @endif
-                                    <h4 class="m-t-10">{{$contactDetails->name}}</h4>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="card-header">
-                                                <span>{{$contactDetails->company}}</span>
+                                        <h4 class="m-t-10">
+                                            <input type="hidden" name="contactId" value="{{$contactDetails->id}}">
+                                            <input class="form-control" type="text" name="name"
+                                                value="{{$contactDetails->name}}">
+                                        </h4>
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card-header">
+                                                    <span>
+                                                        <input class="form-control" type="text" name="company"
+                                                            value="{{$contactDetails->company}}">
+                                                    </span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-8 col-md-12">
-                            <div class="card">
-                                <div class="body">
-                                    <small class="text-muted">Phone: </small>
-                                    <p><a href="tel:{{$contactDetails->phone}}">{{$contactDetails->phone}}</a></p>
-                                    <hr>                                   
-                                    <small class="text-muted">Address: </small>
-                                    <p>{{$contactDetails->address}}</p>
-                                    <hr>
+                            <div class="col-lg-8 col-md-12">
+                                <div class="card">
+                                    <div class="body">
+                                        <small class="text-muted">Phone: </small>
+                                        <p><a href="tel:{{$contactDetails->phone}}">
+                                                <input class="form-control" type="text" name="phone"
+                                                    value="{{$contactDetails->phone}}">
+                                            </a>
+                                        </p>
+                                        <hr>
+                                        <small class="text-muted">Address: </small>
+                                        <p>
+                                            <input class="form-control" type="text" name="address"
+                                                value="{{$contactDetails->address}}">
+                                        </p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="col-auto">
+                                    <button class="btn btn-primary">Update</button>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -77,14 +99,14 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <form action="#" method="post" enctype="multipart/form-data">
+            <form action="{{route('update.contacts.photo')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Upload Photo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body text-center">
-                    <input type="hidden" name="memberId" value="{{Auth::user()->id}}">
+                <input type="hidden" name="contactId" value="{{$contactDetails->id}}">
                     <input type="file" name="photo" class="form-control" required>
                 </div>
                 <div class="modal-footer">

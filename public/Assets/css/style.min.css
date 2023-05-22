@@ -20,8 +20,16 @@ a{
 .header-dropdown li{
     list-style: none;
 }
+.body img{
+    width:80%;
+}
 .photo-edit-btn .icon{
     font-size:48px;
+}
+#photoEdit{
+    position:absolute;
+    top:0px;
+    left:0%;
 }
 .btn:hover,
 .btn:focus,

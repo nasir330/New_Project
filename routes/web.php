@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/add-contacts', [ContactsController::class, 'store'])->name('add.contacts');
     Route::get('/view-contacts/{id}', [ContactsController::class, 'view'])->name('view.contacts');
     Route::get('/edit-contacts/{id}', [ContactsController::class, 'edit'])->name('edit.contacts');
+    Route::post('/update-contact-photo', [ContactsController::class, 'updatePhoto'])->name('update.contacts.photo');
+    Route::post('/update-contacts', [ContactsController::class, 'update'])->name('update.contacts');
     Route::get('/delete-contacts/{id}', [ContactsController::class, 'delete'])->name('delete.contacts');
     // Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
 
