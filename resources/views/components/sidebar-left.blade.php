@@ -11,8 +11,18 @@
           <ul class="list">
               <li>
                   <div class="user-info">
-                      <a class="image" href="profile.html"><img src="{{asset('Assets/img/profile_av.jpg')}}"
-                              alt="User"></a>
+                      @if(empty(Auth::user()->contactsList->photo))
+                      <span class="photo-edit-btn">
+                          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                              <i class="icon fa-solid fa-camera p-2"></i>
+                          </a>
+                      </span>
+                      @else
+                      <a class="image" href="{{route('profile.edit')}}">
+                          <img src="{{asset('')}}{{Auth::user()->contactsList->photo}}" alt="User">
+                      </a>
+                      @endif
+
                       <div class="detail">
                           <h4>Michael</h4>
                           <small>Super Admin</small>
@@ -67,3 +77,25 @@
           </ul>
       </div>
   </aside>
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+        <form action="{{route('update.contacts.photo')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Upload Photo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <input type="hidden" name="contactId" value="{{Auth::user()->contactsList->id}}">
+                    <input type="file" name="photo" class="form-control" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
