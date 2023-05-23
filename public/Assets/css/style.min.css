@@ -20,6 +20,9 @@ a{
 .header-dropdown li{
     list-style: none;
 }
+.list-group-item:hover{
+cursor:pointer;
+}
 .body img{
     width:80%;
 }
@@ -991,10 +994,10 @@ fieldset[disabled] .btn-link.active {
     font-size: 12px
 }
 
-.form-control {
+/* .form-control {
     font-size: 14px;
     background: transparent
-}
+} */
 
 .form-control.form-control-success {
     border-color: #04BE5B
@@ -1015,7 +1018,7 @@ fieldset[disabled] .btn-link.active {
 }
 
 .input-group-text {
-    background: transparent
+    /* background: transparent */
 }
 
 .checkbox,

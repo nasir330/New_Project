@@ -49,8 +49,8 @@
                       <i class="fa-solid fa-cart-shopping"></i>
                       <span>Purchase</span></a>
                   <ul class="ml-menu">
-                      <li><a href="#"> <i class="fa-solid fa-plus"></i> Add Purchase</a></li>
-                      <li><a href="#"> <i class="fa-solid fa-list"></i> Purchase List</a></li>
+                      <li><a href="{{route('add.purchase')}}"> <i class="fa-solid fa-plus"></i> Add Purchase</a></li>
+                      <li><a href="{{route('purchase.list')}}"> <i class="fa-solid fa-list"></i> Purchase List</a></li>
                   </ul>
               </li>
               <li>

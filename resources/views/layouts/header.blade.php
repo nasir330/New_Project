@@ -328,6 +328,8 @@
     <script src="{{asset('Assets/js/vendorscripts.bundle.js')}}"></script>
     <script src="{{asset('Assets/js/footable.bundle.js')}}"></script>
     <script src="{{asset('Assets/js/footable.js')}}"></script>
+    <script src="{{asset('Assets/js/searchContacts.js')}}"></script>
+    <script src="{{asset('Assets/js/ajaxFormSubmit.js')}}"></script>
 </body>
 
 </html>

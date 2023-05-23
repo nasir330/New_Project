@@ -5,6 +5,7 @@ use App\Http\Controllers\AppController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\PurchaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +37,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/update-contact-photo', [ContactsController::class, 'updatePhoto'])->name('update.contacts.photo');
     Route::post('/update-contacts', [ContactsController::class, 'update'])->name('update.contacts');
     Route::get('/delete-contacts/{id}', [ContactsController::class, 'delete'])->name('delete.contacts');
+    Route::get('/contacts-search', [ContactsController::class, 'searchContacts']);
+    Route::post('/contacts-select', [ContactsController::class, 'selectContacts']);
     // Route::get('/export-users',[userController::class, 'exportUser'])->name('exportUser');
 
+    //purchase
+    Route::get('purchase-list',[PurchaseController::class, 'index'])->name('purchase.list');
+    Route::get('add-purchase',[PurchaseController::class, 'create'])->name('add.purchase');
+    Route::post('add-purchase-item',[PurchaseController::class, 'addPurchaseItem']);
+    Route::get('fetch-purchase-item/{id}',[PurchaseController::class, 'fetchPurchaseItem'])->name('fetch.purchase.item');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

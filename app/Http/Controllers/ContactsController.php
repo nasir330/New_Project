@@ -116,4 +116,30 @@ class ContactsController extends Controller
         session()->flash('delete','Account Deleted Successfully..!!');
         return redirect()->route('contacts.list'); 
     }
+
+     //search Contacts
+     public function searchContacts(Request $request){
+        
+        if($request->ajax()){
+            //return $request->name;
+            $data = ContactsList::where('name', 'like', $request->name.'%')->get();
+            $output = '';
+            if(count($data)>0){
+                $output = '<ul class="list-group mt-0" style="display:block; position:relative; top:-10px; z-index:1;">';
+                    foreach($data as $item){
+                        $output .= '<li class="list-group-item" style="background-color:#dee2e6;">'.$item->name. '</li>';
+                    }
+                $output .= '</ul>';      
+            }else{
+                $output .= '<li class="list-group-item"> No data found </li>';
+            }
+            return $output;
+        }
+        //return view('pages.maintenance.create');
+    }
+     //search Contacts
+     public function selectContacts(Request $request){        
+        $contacts = ContactsList::where('name',  $request->searchContact )->first();
+        return response()->json($contacts);
+    }
 }
