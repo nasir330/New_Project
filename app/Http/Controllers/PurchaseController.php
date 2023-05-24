@@ -41,12 +41,33 @@ class PurchaseController extends Controller
           }              
     }
        //fetch purchase Items
-       public function fetchPurchaseItem($id)
+       public function fetchPurchaseItem(Request $request)
        {        
-         $purchaseItem = PurchaseItems::where('userId',$id)
-           ->whereNull('invoiceId')
-           ->get();
-          
-           return response()->json($purchaseItem);
+        
+           if($request->ajax()){
+            //return $request->name;
+            $data = PurchaseItems::where('sellerId',$request->id)
+            ->whereNull('invoiceId')
+            ->get();
+           return response()->json($data);
+        }
+       }
+
+       public function store(Request $request)
+       {
+        PurchaseItems::where('sellerId',$request->sellerId)
+        ->whereNull('invoiceId')
+        ->update(['invoiceId'=>$request->invoiceId]);
+
+        Purchase::create([
+            'userId' => Auth::user()->id,
+            'sellerId' => $request->sellerId,
+            'sellerId' => $request->sellerId,
+            'invoiceId' => $request->invoiceId,
+            'amount' => $request->amount,
+        ]);
+
+        session()->flash('success', 'New Purchase saved successfully..!!');
+        return redirect()->route('add.purchase');
        }
 }

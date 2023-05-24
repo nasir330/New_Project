@@ -24,7 +24,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="{{asset('Assets/css/footable.bootstrap.min.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('Assets/css/footable.bootstrap.min.css')}}"> -->
     <link rel="stylesheet" href="{{asset('Assets/css/style.min.css')}}">
 
 </head>
@@ -326,8 +326,8 @@
     <script src="{{asset('Assets/js/libscripts.bundle.js')}}"></script>
     <script src="{{asset('Assets/js/mainscripts.bundle.js')}}"></script>
     <script src="{{asset('Assets/js/vendorscripts.bundle.js')}}"></script>
-    <script src="{{asset('Assets/js/footable.bundle.js')}}"></script>
-    <script src="{{asset('Assets/js/footable.js')}}"></script>
+    <!-- <script src="{{asset('Assets/js/footable.bundle.js')}}"></script> -->
+    <!-- <script src="{{asset('Assets/js/footable.js')}}"></script> -->
     <script src="{{asset('Assets/js/searchContacts.js')}}"></script>
     <script src="{{asset('Assets/js/ajaxFormSubmit.js')}}"></script>
 </body>

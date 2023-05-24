@@ -26,44 +26,57 @@ $('#add-purchaseItem').on('click', function (e) {
         contentType: "application/json",
         success: function (response) {
             console.log(response);
-            if (response.message !== '') {
-                $('#addMessage').html(response.message);
-                setTimeout(function () {
-                    $('#addMessage').html('');
-                }, 2000); // Set the timeout to 5 seconds (5000ms)
-            }
         }
     });
- //fetch purchase item
- var sellerId = $('#sellerId').val();    
- $.ajax({
-     url: "fetch-purchase-item/" + sellerId,
-     type: "GET",
-     success: function (response) {
-         $.each(response, function (key, value) {
-             var total = value.rate * value.qty;
-             console.log(total);
-         });
-       
-     }
- });
-});
+// Fetch purchase items
+var sellerId = $('#sellerId').val();
+$('#add-purchase-form').trigger("reset");
+$('#purchased-items').html('');
+$.ajax({
+    url: "/fetch-purchase-item",
+    type: "GET",
+    data: { 'id': sellerId },
+    success: function (response) {
+        sum = 0;
+        $.each(response, function(key,value){
+            var description = value.description;
+            var itemRate  = value.itemRate;
+            var itemQty   = value.itemQty ;
+            var total = itemRate * itemQty;
+            sum += parseFloat(total);
 
-//add purchase item
-$('#add-purchaseItem').on('click', function () {
-   
- //fetch purchase item
- var sellerId = $('#sellerId').val();    
- $.ajax({
-     url: "fetch-purchase-item/"+sellerId,
-     type: "GET",
-     success: function (response) {
-         $.each(response, function (key, value) {
-             var total = value.rate * value.qty;
-             console.log(total);
-         });
+            $('#purchased-items').append(
+                '<tr>'+
+                '<td >'+ (key + 1) +'</td>'+
+                '<td >'+description+'</td>'+
+                '<td >'+itemRate+'</td>'+
+                '<td >'+itemQty+'</td>'+
+                '<td >'+total.toFixed(2).toLocaleString()+'</td>'+ 
+                '<td class="text-center">' +
+                    '<input type="hidden" id="customer_id" value=' + value.customerId + '>' +
+                    '<a class="invoice-remove text-danger">' + 'X' + '</a>' +
+                    '</td>' +              
+                '</tr>'
+            );
+            //calculation total
+            var sellerId = value.sellerId;
+            var invoiceId = Math.floor((Math.random() * 9999));
+            $('#calculation').empty();
+            $('#calculation').append(
+                "<tr>" +
+                "<td class='text-right'>" + "PAYABLE" + "</td>" +
+                "<td style='width:2%;' class='text-left'>" + "=" + "</td>" +
+                "<td class='text-left'>" +
+                 sum.toFixed(2).toLocaleString() + " " + "TK" +
+                 "<input type='hidden' name='sellerId' value=" + sellerId + ">" +
+                 "<input type='hidden' name='invoiceId' value=" + invoiceId + ">" +
+                 "<input type='hidden' name='amount' value=" + sum + ">" +
+                  "</td>" +
+                "</tr>" 
+            );
+        });
        
-     }
+    }
  });
-});
 
+});

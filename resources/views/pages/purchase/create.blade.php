@@ -62,7 +62,7 @@
                             </form>
                             <!-- Search contact end -->
 
-                            <form id="add-purchase-form" action="#">                               
+                            <form id="add-purchase-form" action="#">
                                 <div class="row clearfix">
                                     <div class="col-lg-3 col-md-6 mb-3">
                                         <p class="mb-0"> <b>Description</b> </p>
@@ -83,13 +83,14 @@
                                     <div class="col-lg-3 col-md-6 mb-3">
                                         <p class="mb-0"> <b style="color:transparent;">blank</b> </p>
                                         <div class="input-group">
-                                            <button id="add-purchaseItem" class="btn-primary input-group-text">Add Items</button>
+                                            <button id="add-purchaseItem" class="btn-primary input-group-text">Add
+                                                Items</button>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                         </div>
-
+                        <!-- purchase item list start -->
                         <div class="table-responsive">
                             <table
                                 class="table table-bordered table-striped table-hover dataTable js-exportable text-nowrap">
@@ -100,13 +101,33 @@
                                         <th>#Item Rate</th>
                                         <th>Item Quantity</th>
                                         <th>Total</th>
+                                        <th>#</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="purchased-items">
 
                                 </tbody>
                             </table>
                         </div>
+                        <!-- purchase item list end -->
+                        <form action="{{route('submit.purchase')}}" method="post">
+                            @csrf
+                            <div class="col-lg-3 col-md-4 mb-2 table-responsive float-end">
+                                <!-- total calculation start -->
+                                <table
+                                    class="table table-bordered table-striped table-hover dataTable js-exportable text-nowrap">
+                                    <tbody id="calculation">
+
+                                    </tbody>
+                                </table>
+                                <!-- total calculation end -->
+                            </div>
+                            <div class="col-lg-3 col-md-4 mb-3">
+                                <div class="input-group">
+                                    <button type="submit" class="btn-primary input-group-text">Submit Purchase</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
