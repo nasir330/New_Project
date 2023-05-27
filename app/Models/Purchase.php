@@ -9,4 +9,5 @@ class Purchase extends Model
 {
     use HasFactory;
     protected $guarded =[];
+    
 }

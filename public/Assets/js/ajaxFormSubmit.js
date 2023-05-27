@@ -30,7 +30,7 @@ $('#add-purchaseItem').on('click', function (e) {
     });
 // Fetch purchase items
 var sellerId = $('#sellerId').val();
-$('#add-purchase-form').trigger("reset");
+$('#description, #itemRate, #itemQty').val('');
 $('#purchased-items').html('');
 $.ajax({
     url: "/fetch-purchase-item",
@@ -60,6 +60,7 @@ $.ajax({
             );
             //calculation total
             var sellerId = value.sellerId;
+            var purchaseDate = value.purchaseDate;
             var invoiceId = Math.floor((Math.random() * 9999));
             $('#calculation').empty();
             $('#calculation').append(
@@ -69,6 +70,7 @@ $.ajax({
                 "<td class='text-left'>" +
                  sum.toFixed(2).toLocaleString() + " " + "TK" +
                  "<input type='hidden' name='sellerId' value=" + sellerId + ">" +
+                 "<input type='hidden' name='purchaseDate' value=" + purchaseDate + ">" +
                  "<input type='hidden' name='invoiceId' value=" + invoiceId + ">" +
                  "<input type='hidden' name='amount' value=" + sum + ">" +
                   "</td>" +

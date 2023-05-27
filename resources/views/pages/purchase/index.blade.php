@@ -43,21 +43,21 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Seller</th>
-                                            <th>#Invoice</th>
-                                            <th>Amount</th>
+                                            <th>Seller</th>                                            
                                             <th>Date</th>
+                                            <th>Amount</th>
                                             <th>#</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody>                                                                              
                                         @foreach($purchase as $key=> $item)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$item->sellerId}}</td>
-                                            <td>{{$item->invoiceId}}</td>
-                                            <td>{{$item->amount}}</td>
-                                            <td>{{$item->created_at}}</td>                                           
+                                            <td>{{$item->sellerId}}</td>                                            
+                                            <td>
+                                            {{Carbon\Carbon::parse($item->purchaseDate)->toFormattedDateString()}}                                                
+                                            </td>                                           
+                                            <td>{{$item->total}}</td>
                                             <td>
                                                 <ul class="header-dropdown">
                                                     <li class="dropdown"> <a href="javascript:void(0);"

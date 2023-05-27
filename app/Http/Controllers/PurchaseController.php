@@ -7,13 +7,19 @@ use App\Models\Purchase;
 use App\Models\UserType;
 use App\Models\PurchaseItems;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class PurchaseController extends Controller
 {
     //
     public function index()
     {
-        $purchase = Purchase::all();
+        $today = Carbon::today()->toDateString();
+        $purchase = Purchase::select('sellerId', DB::raw('SUM(amount) as total'))
+        ->where('purchaseDate', $today)
+        ->groupBy('sellerId')
+        ->get();
         return view('pages.purchase.index',['purchase' => $purchase]);
     }
 
@@ -29,6 +35,7 @@ class PurchaseController extends Controller
         $purchaseItem = PurchaseItems::create([
             'userId' =>  Auth::user()->id,
             'sellerId' =>   $request->sellerId,
+            'purchaseDate' =>   $request->purchaseDate,
             'description' =>  $request->description,
             'itemRate' =>  $request->itemRate,
             'itemQty' =>  $request->itemQty,
@@ -54,7 +61,7 @@ class PurchaseController extends Controller
        }
 
        public function store(Request $request)
-       {
+       {        
         PurchaseItems::where('sellerId',$request->sellerId)
         ->whereNull('invoiceId')
         ->update(['invoiceId'=>$request->invoiceId]);
@@ -62,7 +69,7 @@ class PurchaseController extends Controller
         Purchase::create([
             'userId' => Auth::user()->id,
             'sellerId' => $request->sellerId,
-            'sellerId' => $request->sellerId,
+            'purchaseDate' => $request->purchaseDate,
             'invoiceId' => $request->invoiceId,
             'amount' => $request->amount,
         ]);

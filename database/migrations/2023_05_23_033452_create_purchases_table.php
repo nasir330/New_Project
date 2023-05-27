@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('userId');
             $table->string('sellerId');
+            $table->string('purchaseDate');
             $table->string('invoiceId')->nullable();
             $table->string('amount');
             $table->timestamps();

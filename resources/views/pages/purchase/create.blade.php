@@ -63,21 +63,27 @@
                             <!-- Search contact end -->
 
                             <form id="add-purchase-form" action="#">
+                                <div class="row">
+                                <div class="col-lg-3 col-md-6 mb-3">
+                                        <p class="mb-0"> <b>Date</b> </p>
+                                        <input id="sellerId" type="hidden" name="sellerId">
+                                        <input type="date" name="purchaseDate" class="form-control">
+                                    </div>
+                                </div>
                                 <div class="row clearfix">
                                     <div class="col-lg-3 col-md-6 mb-3">
-                                        <p class="mb-0"> <b>Description</b> </p>
-                                        <input id="sellerId" type="hidden" name="sellerId">
-                                        <input type="text" name="description" class="form-control"
+                                        <p class="mb-0"> <b>Description</b> </p>                                       
+                                        <input type="text" id="description" name="description" class="form-control"
                                             placeholder="Item description">
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-3">
                                         <p class="mb-0"> <b>Item Rate</b> </p>
-                                        <input type="text" name="itemRate" class="form-control"
+                                        <input type="text" id="itemRate" name="itemRate" class="form-control"
                                             placeholder="Enter Item rate">
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-3">
                                         <p class="mb-0"> <b>Item Quantity</b> </p>
-                                        <input type="text" name="itemQty" class="form-control"
+                                        <input type="text" id="itemQty" name="itemQty" class="form-control"
                                             placeholder="Enter Item Quantity">
                                     </div>
                                     <div class="col-lg-3 col-md-6 mb-3">
