@@ -59,6 +59,13 @@ class PurchaseController extends Controller
            return response()->json($data);
         }
        }
+       //remove purchase items
+       public function removePurchaseItem($id)
+       {
+        PurchaseItems::where('id',$id)->delete();
+        session()->flash('delete','item removed..!!');
+        return redirect()->back();
+       }
 
        public function store(Request $request)
        {        
@@ -76,5 +83,16 @@ class PurchaseController extends Controller
 
         session()->flash('success', 'New Purchase saved successfully..!!');
         return redirect()->route('add.purchase');
+       }
+
+       public function view($id)
+       {
+            $purchaseList = Purchase::where('sellerId',$id)->get();
+            return view('pages.purchase.view',['purchaseList' => $purchaseList]);
+       }
+       public function viewDetails($invoiceId)
+       {
+            $purchaseDetails = PurchaseItems::where('invoiceId',$invoiceId)->get();            
+            return view('pages.purchase.viewDetails',['purchaseDetails' => $purchaseDetails]);
        }
 }

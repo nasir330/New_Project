@@ -46,7 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::get('add-purchase',[PurchaseController::class, 'create'])->name('add.purchase');
     Route::post('add-purchase-item',[PurchaseController::class, 'addPurchaseItem']);
     Route::get('/fetch-purchase-item',[PurchaseController::class, 'fetchPurchaseItem']);
+    Route::get('/remove-purchase-item/{id}',[PurchaseController::class, 'removePurchaseItem'])->name('remove.purchase.item');
     Route::post('submit-purchase',[PurchaseController::class, 'store'])->name('submit.purchase');
+    Route::get('view-purchase/{id}',[PurchaseController::class, 'view'])->name('view.purchase');
+    Route::get('view-purchase-details/{invoiceId}',[PurchaseController::class, 'viewDetails'])->name('view.purchase.details');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -10,4 +10,8 @@ class Purchase extends Model
     use HasFactory;
     protected $guarded =[];
     
+     //Table relation with user table
+     public function contacts(){
+        return $this->belongsTo(ContactsList::class, 'sellerId', 'userId');
+    }
 }

@@ -7,7 +7,7 @@
         <div class="block-header">
             <div class="row">
                 <div class="col-lg-7 col-md-6 col-sm-12">
-                    <h2>View Purchase</h2>
+                    <h2>Purchase Details</h2>
                     <ul class="breadcrumb">
                         <li class="breadcrumb-item active"> <a href="{{route('purchase.list')}}">
                                 <i class="fa-solid fa-home"></i>
@@ -46,22 +46,28 @@
                                             <th>Seller</th>
                                             <th>Date</th>
                                             <th>Invoice No.</th>
-                                            <th>Amount</th>
+                                            <th>Description</th>
+                                            <th>Rate</th>
+                                            <th>Qty.</th>
+                                            <th>Total.</th>
                                             <th>#</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($purchaseList as $key => $item)
+                                        @foreach($purchaseDetails as $key => $item)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$item->contacts->name}}</td> 
+                                            <td>{{$item->contacts->name}}</td>
                                             <td>{{Carbon\Carbon::parse($item->purchaseDate)->toFormattedDateString()}}
                                             </td>
                                             <td>{{$item->invoiceId}}</td>
-                                            <td>{{$item->amount}}</td>
+                                            <td>{{$item->description}}</td>
+                                            <td>{{$item->itemRate}}</td>
+                                            <td>{{$item->itemQty}}</td>
+                                            <td>{{$item->total}}</td>
                                             <td>
-                                                <a
-                                                    href="{{route('view.purchase.details',['invoiceId' => $item->invoiceId])}}">Details</a>
+                                            <a class="invoice-remove text-danger"
+                                                    href="{{route('remove.purchase.item',['id'=>$item->id])}}">X</a>
                                             </td>
                                         </tr>
                                         @endforeach

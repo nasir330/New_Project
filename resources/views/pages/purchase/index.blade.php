@@ -49,28 +49,17 @@
                                             <th>#</th>
                                         </tr>
                                     </thead>
-                                    <tbody>                                                                              
+                                    <tbody>                                                                                                                     
                                         @foreach($purchase as $key=> $item)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$item->sellerId}}</td>                                            
+                                            <td>{{$item->contacts->name}}</td>                                            
                                             <td>
                                             {{Carbon\Carbon::parse($item->purchaseDate)->toFormattedDateString()}}                                                
                                             </td>                                           
                                             <td>{{$item->total}}</td>
                                             <td>
-                                                <ul class="header-dropdown">
-                                                    <li class="dropdown"> <a href="javascript:void(0);"
-                                                            class="dropdown-toggle" data-toggle="dropdown" role="button"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            <i class="fa-solid fa-ellipsis-vertical"></i> </a>
-                                                        <ul class="dropdown-menu dropdown-menu-right slideUp">
-                                                            <li><a href="#">View</a></li>
-                                                            <li><a href="#">Edit</a></li>
-                                                            <li><a href="#">Delete</a></li>
-                                                        </ul>
-                                                    </li>
-                                                </ul>
+                                                <a href="{{route('view.purchase',['id' => $item->sellerId])}}">View</a>
                                             </td>
                                         </tr>
                                         @endforeach

@@ -13,7 +13,12 @@ class PurchaseItems extends Model
     //total attribute
     public function getTotalAttribute()
     {
-        return $this->rate*$this->qty;
+        return $this->itemRate*$this->itemQty;
+    }
+
+     //Table relation with user table
+     public function contacts(){
+        return $this->belongsTo(ContactsList::class, 'sellerId');
     }
     //Invoice table relation
     public function purchase() {
