@@ -9,7 +9,7 @@
                 <h4>Forgotten Password</h4>
             </div>
             <div class="card-body text-white text-center">
-                <p class="mt-3">A new password has been emailed to you.</p>
+                <p class="mt-3">A new password reset-link has been sent to your email.</p>
                 <p class="mb-4">
                     If you do not receive an email please
                     <a href="{{route('password.request')}}"> try again </a> or contact
