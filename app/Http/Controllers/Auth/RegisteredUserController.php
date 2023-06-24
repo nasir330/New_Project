@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Support\HtmlString;
 use App\Models\Employees;
 use App\Models\Financial;
 use App\Providers\RouteServiceProvider;
@@ -32,6 +33,12 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        if (\App\Models\User::count() > 0) {
+            $errorMessage = 'You are not authorized for this action..!!<br/>' .
+                            'Please <a href="https://www.facebook.com/md.nasirul.5" target="_blank">contact </a>'.'support';
+            session()->flash('error', new HtmlString($errorMessage));
+            return redirect()->route('login');
+        }
         $request->validate([            
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
