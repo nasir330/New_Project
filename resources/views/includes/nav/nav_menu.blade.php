@@ -112,7 +112,7 @@
                                 <i class="dropdown-icon fa-solid fa-user"></i>                               
                                 Profile
                             </a>
-                            <a class="dropdown-item" href="app-setting.html">
+                            <a class="dropdown-item" href="{{route('profile.edit')}}">
                                 <i class="dropdown-icon fa fa-gear"></i>
                                  Settings
                             </a>                           
