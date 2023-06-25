@@ -33,10 +33,19 @@
                                             alt="User Image">
                                     </div>
                                     <h4 class="text-center mt-2">
+                                        @if(!empty($employee->employees->departments))
                                         {{$employee->employees->departments->department}} <br>
                                         <span style="font-size:16px;">
-                                            {{$employee->employees->departments->designations->designation}}
+                                            {{'designation'}}
                                         </span>
+                                        @else
+                                        {{'NA'}}
+                                        <span style="font-size:16px;">
+                                            {{'na'}}
+                                        </span>
+                                        @endif
+
+
                                     </h4>
                                     <div class="nav flex-column nav-tabs h-100" id="vert-tabs-tab" role="tablist"
                                         aria-orientation="vertical">
@@ -136,11 +145,25 @@
                                             <tbody>
                                                 <tr>
                                                     <td style="width:30%;">Department</td>
-                                                    <td>{{$employee->employees->departments->department}}</td>
+                                                    <td>
+
+                                                        @if(!empty($employee->employees->departments))
+                                                        {{$employee->employees->departments->department}}
+                                                        @else
+                                                        {{'NA'}}
+                                                        @endif
+
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td style="width:30%;">Designation</td>
-                                                    <td>{{$employee->employees->departments->designations->designation}}
+                                                    <td>
+                                                        @if(!empty($employee->employees->departments->designations))
+                                                        {{$employee->employees->departments->designations->designation}}
+                                                        @else
+                                                        {{'NA'}}
+                                                        @endif
+
                                                     </td>
                                                 </tr>
                                                 <tr>

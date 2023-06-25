@@ -19,8 +19,12 @@ use Excel;
 class userController extends Controller
 {
     public function index()
-    {        
-        $users = User::all();       
+    {
+      if(Auth::user()->userType==1){
+         $users = User::all();
+      }else{
+         $users = User::whereNot('userType',1)->get();
+      }        
         return view('pages.employees.index',['users' => $users]);
     }
      //add employee form
