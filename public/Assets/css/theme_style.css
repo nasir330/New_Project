@@ -74,6 +74,14 @@ a{
    background-color: #283041;
    border: 2px solid #00A9BD;
 }
+.photo-edit-btn .icon{
+   font-size:48px;
+}
+#photoEdit{
+   position:absolute;
+   top:0px;
+   left:0%;
+}
 .icon:hover{
    color: #00A9BD;
    scale: 1.1;
