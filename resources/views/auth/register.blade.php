@@ -1,58 +1,67 @@
-<x-header />
-
-<body>
-    <div class="col-md-5 card login-form">
-        @if(session()->has('success'))
-        <div id="successMessage" class="text-center text-success p-1">
-            {{session('success')}}
+@extends('layouts.app')
+@section('title','Register')
+@section('content')
+<div class="register-box">
+    <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+            <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
         </div>
-        @endif
-        @if(session()->has('error'))
-        <div id="successMessage" class="text-center text-danger p-1">
-            {{session('error')}}
-        </div>
-        @endif
-        <x-input-error :messages="$errors->get('email')" style="list-style:none;" class="text-danger mt-2" />
-        <x-input-error :messages="$errors->get('username')" style="list-style:none;" class="text-danger mt-2" />
-        <div class="text-center mt-2">
-            <!-- <h5>User Login</h5> -->
-            <h4>User Registration</h4>
-        </div>
-        <!-- Login section start -->
-        <form action="{{route('register')}}" method="post">
-            @csrf
-            <div class="card-body text-white">
-                <div class="form-group">
-                    <label for="name" class="mb-0">Name</label>
-                    <div class="input-group mb-2">
-                        <input type="text" name="name" class="form-control" placeholder="Enter Name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="email" class="mb-0">Email address</label>
-                    <div class="input-group mb-2">
-                        <input type="email" name="email" class="form-control" placeholder="Enter Email Address">
-                    </div>
-                </div>
+        <div class="card-body">
+            <p class="login-box-msg">Register a new membership</p>
 
-                <div class="form-group">
-                    <label for="password" class="mb-0">User password</label>
-                    <div class="input-group mb-2">
-                        <input type="password" name="password" class="form-control" placeholder="Enter password">
+            <form action="../../index.html" method="post">
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Full name">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-user"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="password_confirmation" class="mb-0">Confirm password</label>
-                    <div class="input-group mb-2">
-                        <input type="password" name="password_confirmation" class="form-control"
-                            placeholder="Re-type password">
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" placeholder="Email">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-envelope"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="input-group mt-3">
-                    <button class="form-control btn theme-btn">Register</button>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
                 </div>
-        </form>
+                <div class="input-group mb-3">
+                    <input type="password" class="form-control" placeholder="Retype password">
+                    <div class="input-group-append">
+                        <div class="input-group-text">
+                            <span class="fas fa-lock"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="icheck-primary">
+                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                            <label for="agreeTerms">
+                                I agree to the <a href="#">terms</a>
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-4">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
 
-        <!-- Login section end -->
-    </div>
-    <x-footer />
+            <a href="{{route('login')}}" class="text-center">I already have a membership</a>
+        </div>
+        <!-- /.form-box -->
+    </div><!-- /.card -->
+</div>
+@endsection

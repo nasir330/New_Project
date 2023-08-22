@@ -1,123 +1,171 @@
-<div id="left-sidebar" class="sidebar">
-    <div class="row">
-        <div class="col-auto text-white">
-           <h4>{{Auth::user()->name}}</h4>
-        </div>
-        <!-- <div class="col-auto d-flex justify-content-end">
-            <a href="javascript:void(0)" class="menu_option float-right">
-                <i style="font-size:22px;" class="fa-solid fa-bars" data-toggle="tooltip" data-placement="left"
-                    title="Grid & List Toggle"></i>
-            </a>
-        </div> -->
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link text-center">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{route('dashboard')}}" class="nav-link active">
+                        <i class="fa-solid fa-house"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-users"></i>
+                        <p>
+                            Customers
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-list"></i>
+                                <p>Customers List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-user-plus"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-quote-left"></i>
+                        <p>
+                            Quotations
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-list"></i>
+                                <p>Quotations List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <p>
+                            Invoices
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-list"></i>
+                                <p>Invoices List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-certificate"></i>
+                        <p>
+                            Certificates
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-list"></i>
+                                <p>Certificates List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-certificate"></i>
+                        <p>
+                            Maintenance Check
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-list"></i>
+                                <p>Check List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-bell"></i>
+                        <p>
+                            Alarm
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                        <a href="#" class="nav-link">
+                                <i class="fa-solid fa-list"></i>
+                                <p>Alarm List</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            < <a href="#" class="nav-link">
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Add New</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="fa fa-solid fa-gears"></i>
+                        <p>Settings</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
     </div>
-    <nav id="left-sidebar-nav" class="sidebar-nav">
-        <ul class="metismenu">
-            <li class="g_heading">Management</li>
-            <!-- Management menu list start -->
-            <li class="active">
-                <a href="{{route('dashboard')}}">
-                    <i class="fas fa-home"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-user-tie"></i>
-                    <span>Users</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="{{route('users.list')}}">
-                            <i class="fa-solid fa-user-group"></i>
-                            Users List
-                        </a>
-                    </li>
-                    <li>
-                    <a href="{{route('add.staf')}}">
-                            <i class="fa-solid fa-user-check"></i>
-
-                            Add New
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-handcuffs"></i>
-                    <span>Inmate's</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-users"></i>
-                            Inmate's List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
-                            Add New
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- Management menu list end -->
-
-            <li class="g_heading">Services</li>
-            <!-- Services menu list start -->
-            <li>
-                <a href="javascript:void(0)" class="has-arrow arrow-c">
-                    <i class="fa-solid fa-people-group"></i>
-                    <span>Visitor's</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-people-group"></i>
-                            Visitor List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                            <i class="fa-solid fa-user-plus"></i>
-                            Add New
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!-- Services menu list end -->
-
-            <li class="g_heading">Maintenance</li>
-            <!-- Maintenance menu list start -->
-            <li>
-                <a href="javascript:void(0)" class="has-arrow arrow-c">
-                <i class="fa-solid fa-truck-field-un"></i>
-                    <span>Inventory's</span>
-                </a>
-                <ul>
-                    <li>
-                        <a href="login.html">
-                        <i class="fa-solid fa-list"></i>
-                            Inventory List
-                        </a>
-                    </li>
-                    <li>
-                        <a href="login.html">
-                        <i class="fa-solid fa-plus"></i>
-                            Add New
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="login.html">
-                <i class="fa-solid fa-folder-open"></i>
-                    Report
-                </a>
-            </li>
-            <!-- Maintenance menu list end -->
-
-
-        </ul>
-    </nav>
-</div>
+    <!-- /.sidebar -->
+</aside>

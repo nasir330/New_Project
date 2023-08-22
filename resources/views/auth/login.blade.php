@@ -1,52 +1,59 @@
-<x-header />
-
-<body>
-    <div class="col-md-5 card login-form">        
-        @if(session()->has('success'))
-        <div id="successMessage" class="text-center text-success p-1">
-            {{session('success')}}
-        </div>
-        @endif
-        @if(session()->has('error'))
-        <div style="color:red;" id="errorMsg" class="text-center p-1">
-            {{session('error')}}
-            <script>
-        setTimeout(function() {
-            window.location.href = '{{ route('login') }}'; // redirect to the login page after 2 seconds
-        }, 1000);
-    </script>
-        </div>
-        @endif
-        <x-input-error :messages="$errors->get('email')" style="list-style:none;" class="text-danger mt-2" />
-        <x-input-error :messages="$errors->get('username')" style="list-style:none;" class="text-danger mt-2" />
-        <div class="text-center mt-2">
-            <!-- <h5>User Login</h5> -->
-            <h4>User Login</h4>
-        </div>
-        <!-- Login section start -->
-        <form action="{{route('login')}}" method="post">
-            @csrf
-            <div class="card-body text-white">
-                <div class="form-group">
-                    <label for="username">User Email</label>
-                    <div class="input-group mb-2">
-                        <input type="email" name="email" class="form-control" placeholder="Enter email address">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">User password</label>
-                    <div class="input-group mb-2">
-                        <input type="password" name="password" class="form-control" placeholder="Enter password">
-                    </div>
-                </div>
-                <div class="input-group">
-                    <button class="form-control btn theme-btn">Login</button>
-                </div>
-        </form>
-        <div class="row text-right mt-3">
-        <a href="{{route('password.request')}}" > <strong>Forgot password ?</strong> </a>
-        </div>
-        <!-- Login section end -->
+@extends('layouts.app')
+@section('title','Login')
+@section('content')
+<div class="login-box">
+  <!-- /.login-logo -->
+  <div class="card card-outline card-primary">
+    <div class="card-header text-center">
+      <a href="../../index2.html" class="h1"><b>Admin</b>LTE</a>
     </div>
-    <x-footer />
+    <div class="card-body">
+      <p class="login-box-msg">Sign in to start your session</p>
+
+      <form action="../../index3.html" method="post">
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="Email">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-envelope"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="password" class="form-control" placeholder="Password">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8">
+            <div class="icheck-primary">
+              <input type="checkbox" id="remember">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
+          <!-- /.col -->
+          <div class="col-4">
+            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+          </div>
+          <!-- /.col -->
+        </div>
+      </form>
+
+     
+      <p class="mb-1">
+        <a href="forgot-password.html">I forgot my password</a>
+      </p>
+      <p class="mb-0">
+        <a href="{{route('register')}}" class="text-center">Register a new membership</a>
+      </p>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+</div>
+@endsection
